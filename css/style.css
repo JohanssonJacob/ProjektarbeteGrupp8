@@ -1,5 +1,5 @@
-@use "sass:color";
-@use "sass:map";
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap");
 * {
   margin: 0;
 }
@@ -7,39 +7,13 @@
 /* ===========================
    VARIABLER
 =========================== */
-$primary: black;
-$primary-foreground: hsl(0 0% 100%);
-$accent: hsl(168 62% 52%);
-$sky: hsl(202 100% 69%);
-$accent-sky: $sky; // alias för kompatibilitet
-
-$breakpoints: (mobile: 767px, tablet: 1000px);
-
 /* ===========================
    MIXINS
 =========================== */
-@mixin respond-up($point) {
-  @if map.has-key($breakpoints, $point) {
-    @media (min-width: map.get($breakpoints, $point)) {
-      @content;
-    }
-  } @else {
-    @warn "Unknown breakpoint `#{$point}`.";
-  }
-}
-
 /* ===========================
    FÄRGER OCH SKUGGOR
 =========================== */
-$gradient-primary: linear-gradient(135deg, $primary, $sky);
-$gradient-accent: linear-gradient(135deg, $accent, $sky);
-$navbar-bg: color.mix(white, $accent-sky, 90%);
-$shadow-glow: 0 10px 40px -10px hsla(168, 62%, 52%, 0.3);
-$shadow-soft: 0 4px 20px hsla(210, 63%, 16%, 0.10);
-
 /* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap");
-
 :root {
   --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
@@ -55,7 +29,7 @@ body {
   font-size: xx-small;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $primary;
+  color: black;
 }
 
 h1,
@@ -69,13 +43,14 @@ h6,
   font-family: var(--font-ui);
   font-weight: 600;
   line-height: 1.15;
-  color: $primary;
+  color: black;
 }
 
 h1 {
   font-size: 2rem;
   font-weight: 700;
 }
+
 h2 {
   font-size: 1.5rem;
 }
@@ -83,25 +58,28 @@ h2 {
 .font-ui {
   font-family: var(--font-ui);
 }
+
 .font-heading {
   font-family: var(--font-heading);
 }
+
 .navbar {
   display: flex;
-  background: $navbar-bg;
+  background: rgb(239.19, 249.203, 255);
   justify-content: space-evenly;
   width: 100%;
 }
+
 .nav-pages {
   margin-left: auto;
-
   display: flex;
   align-items: center;
   gap: 1rem;
 }
+
 .pages-link {
   text-decoration: none;
-  color: $primary;
+  color: black;
   margin-right: 5px;
   padding: 0.4rem 0.65rem;
   border-radius: 0.45rem;
@@ -119,13 +97,14 @@ h2 {
   padding: 0.35rem 0.6rem;
   margin-left: 10rem;
   background: transparent;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /* ===========================
    RESPONSIVE
 =========================== */
-@include respond-up(mobile) {
+@media (min-width: 767px) {
   .logo {
     height: 48px;
   }
@@ -134,8 +113,7 @@ h2 {
     margin-right: 50px;
   }
 }
-
-@include respond-up(tablet) {
+@media (min-width: 1000px) {
   .logo {
     height: 60px;
   }
@@ -143,30 +121,28 @@ h2 {
     font-size: large;
     margin-right: 30px;
   }
-
   .bg-gradient-accent:hover {
     transform: translateY(-1px);
-    box-shadow: $shadow-glow;
+    box-shadow: 0 10px 40px -10px hsla(168, 62%, 52%, 0.3);
   }
 }
-
 /* ===========================
    EXTRA KLASSER
 =========================== */
 .bg-gradient-accent {
-  background-image: $gradient-accent;
+  background-image: linear-gradient(135deg, hsl(168, 62%, 52%), hsl(202, 100%, 69%));
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
   border-radius: 0.75rem;
-  color: $primary-foreground;
+  color: hsl(0, 0%, 100%);
 }
 
 .text-primary {
-  color: $primary;
+  color: black;
 }
 
 .text-primary-foreground {
-  color: $primary-foreground;
-}
+  color: hsl(0, 0%, 100%);
+}/*# sourceMappingURL=style.css.map */
