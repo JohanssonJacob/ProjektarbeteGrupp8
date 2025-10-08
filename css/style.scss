@@ -8,7 +8,7 @@
    VARIABLER
 =========================== */
 $primary: black;
-$primary-foreground: hsl(0 0% 100%);
+$primary-foreground: hsl(0, 5%, 81%);
 $accent: hsl(168 62% 52%);
 $sky: hsl(202 100% 69%);
 $accent-sky: $sky; // alias för kompatibilitet
@@ -32,13 +32,13 @@ $breakpoints: (mobile: 767px, tablet: 1000px);
    FÄRGER OCH SKUGGOR
 =========================== */
 $gradient-primary: linear-gradient(135deg, $primary, $sky);
-$gradient-accent: linear-gradient(135deg, $accent, $sky);
+$gradient-accent: linear-gradient(60deg, $accent, $sky);
 $navbar-bg: color.mix(white, $accent-sky, 90%);
 $shadow-glow: 0 10px 40px -10px hsla(168, 62%, 52%, 0.3);
-$shadow-soft: 0 4px 20px hsla(210, 63%, 16%, 0.10);
+$shadow-soft: 0 4px 20px hsla(210, 20%, 16%, 0.10);
 
 /* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap";
 
 :root {
   --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
@@ -51,7 +51,7 @@ $shadow-soft: 0 4px 20px hsla(210, 63%, 16%, 0.10);
 html,
 body {
   font-family: var(--font-heading);
-  font-weight: 200;
+  font-weight: 400;
   font-size: xx-small;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,7 +67,7 @@ h6,
 .brand .brand-title,
 .text-heading {
   font-family: var(--font-ui);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.15;
   color: $primary;
 }
@@ -229,4 +229,36 @@ h2 {
 
 .text-primary-foreground {
   color: $primary-foreground;
+}
+.contact-us {
+  width: 100%;
+  height: 100vh;
+  background: $gradient-primary;
+  justify-content: center;
+  .section-left {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 50%;
+    height: 100%;
+
+    color: $shadow-soft;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    text-align: start;
+  }
+  .title {
+    text-align: start;
+    font-size: 25px;
+    color: $accent;
+  }
+  #info {
+    color: $primary-foreground;
+    font-size: 15px;
+  }
+  .main-text {
+    max-width: 430px;
+    color: white;
+  }
 }
