@@ -113,22 +113,77 @@ h2 {
     margin-right: 50px;
   }
 }
+.site-footer {
+  background: linear-gradient(180deg, #0d2336 0%, #102f45 100%);
+  color: #d8e1e8;
+  padding: 4rem 1.5rem 2rem;
+  font-family: var(--font-ui);
+  font-size: 2rem;
+  gap: 2rem 2rem;
+  justify-content: space-evenly;
+}
+.site-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem 2rem;
+  justify-content: space-evenly;
+}
 @media (min-width: 1000px) {
-  .logo {
-    height: 60px;
-  }
-  .pages-link {
-    font-size: large;
-    margin-right: 30px;
-  }
-  .bg-gradient-accent:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 40px -10px hsla(168, 62%, 52%, 0.3);
+  .site-footer .container {
+    grid-template-columns: 2fr 1fr 1fr;
   }
 }
-/* ===========================
-   EXTRA KLASSER
-=========================== */
+.site-footer .footer-col h4 {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.site-footer .footer-col p,
+.site-footer .footer-col a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  line-height: 1.6;
+  display: block;
+  transition: color 0.3s ease;
+}
+.site-footer .footer-col .footer-info {
+  font-size: 1.2rem;
+}
+.site-footer .footer-col a:hover {
+  color: hsl(168, 62%, 52%);
+}
+.site-footer .footer-brand span {
+  font-family: var(--font-ui);
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: #fff;
+}
+.site-footer .footer-desc {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 1.2rem;
+  max-width: 300px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .bg-gradient-accent {
   background-image: linear-gradient(135deg, hsl(168, 62%, 52%), hsl(202, 100%, 69%));
   display: inline-flex;
