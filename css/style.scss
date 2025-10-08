@@ -134,25 +134,85 @@ h2 {
     margin-right: 50px;
   }
 }
+.site-footer {
+  background: linear-gradient(180deg, #0d2336 0%, #102f45 100%);
+  color: #d8e1e8;
+  padding: 4rem 1.5rem 2rem;
+  font-family: var(--font-ui);
+  font-size: 2rem;
+  gap: 2rem 2rem;
+  justify-content: space-evenly;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem 2rem;
+    justify-content: space-evenly;
 
-@include respond-up(tablet) {
-  .logo {
-    height: 60px;
-  }
-  .pages-link {
-    font-size: large;
-    margin-right: 30px;
+    @include respond-up(tablet) {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
   }
 
-  .bg-gradient-accent:hover {
-    transform: translateY(-1px);
-    box-shadow: $shadow-glow;
+  .footer-col {
+    h4 {
+      font-family: var(--font-heading);
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p,
+    a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      line-height: 1.6;
+      display: block;
+      transition: color 0.3s ease;
+    }
+    .footer-info {
+      font-size: 1.2rem;
+    }
+
+    a:hover {
+      color: $accent;
+    }
+  }
+
+  .footer-brand {
+    span {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+  }
+
+  .footer-desc {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    font-size: 1.2rem;
+    max-width: 300px;
   }
 }
 
-/* ===========================
-   EXTRA KLASSER
-=========================== */
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .bg-gradient-accent {
   background-image: $gradient-accent;
   display: inline-flex;
