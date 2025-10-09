@@ -23,15 +23,18 @@
     text-align: start;
     padding: 3rem;
   }
-  .contact-icon {
+
+  .contact-li {
     display: flex;
+    border: 1px solid;
+    gap: 2rem;
+  }
+
+  .contact-icon {
     width: 4rem;
     height: 4rem;
     padding: 1rem;
 
-    border: 1px solid, $shadow-glow;
-    margin: 1rem;
-    gap: 1rem;
     @include glass-card(
     5rem,             
     5rem,             

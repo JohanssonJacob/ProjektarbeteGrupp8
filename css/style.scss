@@ -2,8 +2,13 @@
 @use "sass:map";
 @use './variables' as *;
 @use "pages/contact-us";
+@use "./mixins" as mx;
+
 * {
   margin: 0;
+}
+@function fs($key) {
+  @return map-get($font-sizes, $key);
 }
 
 @mixin respond-up($point) {
@@ -17,55 +22,30 @@
 }
 
 /* ===========================
-   FÄRGER OCH SKUGGOR
-=========================== */
-$gradient-primary: linear-gradient(120deg, $primary, $sky);
-$gradient-accent: linear-gradient(400deg, $accent, $sky);
-$navbar-bg: color.mix(white, $accent-sky, 90%);
-$shadow-glow: 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
-$shadow-soft: 0 4px 20px hsla(210, 20%, 16%, 0.10);
 
 /* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
 @import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap";
 
 :root {
-  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};
 }
 
 /* Bas-typografi (mobile-first) */
 html,
 body {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: xx-small;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: $primary;
+  @include mx.respond-up(md) {
+    font-size: 1.0625rem;
+  }
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.brand .brand-title,
-.text-heading {
-  font-family: var(--font-ui);
-  font-weight: 400;
-  line-height: 1.15;
-  color: $primary;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-h2 {
-  font-size: 1.5rem;
+.grid {
+  display: grid;
+  @include mx.respond-up(md) {
+    gap: 1.5rem;
+  }
+  @include mx.respond-up(lg) {
+    gap: 2rem;
+  }
 }
 
 .font-ui {

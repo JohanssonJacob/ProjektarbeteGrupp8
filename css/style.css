@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap";
+/* Breakpoints (min-width) – håll EN källa */
+/* Storlekar */
 .contact-us {
   display: flex;
   background: linear-gradient(139deg, #010627, hsl(202, 100%, 69%));
@@ -21,14 +23,15 @@
   text-align: start;
   padding: 3rem;
 }
-.contact-us .contact-icon {
+.contact-us .contact-li {
   display: flex;
+  border: 1px solid;
+  gap: 2rem;
+}
+.contact-us .contact-icon {
   width: 4rem;
   height: 4rem;
   padding: 1rem;
-  border: 1px solid, 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
-  margin: 1rem;
-  gap: 1rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -142,48 +145,33 @@
 }
 
 /* ===========================
-   FÄRGER OCH SKUGGOR
-=========================== */
+
 /* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
 :root {
-  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-heading: ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  --font-body: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 /* Bas-typografi (mobile-first) */
-html,
-body {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: xx-small;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #010627;
+@media (min-width: 768px) {
+  html,
+  body {
+    font-size: 1.0625rem;
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.brand .brand-title,
-.text-heading {
-  font-family: var(--font-ui);
-  font-weight: 400;
-  line-height: 1.15;
-  color: #010627;
+.grid {
+  display: grid;
 }
-
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
+@media (min-width: 768px) {
+  .grid {
+    gap: 1.5rem;
+  }
 }
-
-h2 {
-  font-size: 1.5rem;
+@media (min-width: 1024px) {
+  .grid {
+    gap: 2rem;
+  }
 }
 
 .font-ui {
@@ -235,15 +223,6 @@ h2 {
 /* ===========================
    RESPONSIVE
 =========================== */
-@media (min-width: 767px) {
-  .logo {
-    height: 48px;
-  }
-  .pages-link {
-    font-size: medium;
-    margin-right: 50px;
-  }
-}
 .site-footer {
   background: linear-gradient(180deg, #0d2336 0%, #102f45 100%);
   color: #d8e1e8;
@@ -259,11 +238,6 @@ h2 {
   display: grid;
   gap: 2rem 2rem;
   justify-content: space-evenly;
-}
-@media (min-width: 1000px) {
-  .site-footer .container {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
 }
 .site-footer .footer-col h4 {
   font-family: var(--font-heading);
@@ -316,7 +290,7 @@ h2 {
 }
 
 .bg-gradient-accent {
-  background-image: linear-gradient(120deg, #010627, hsl(202, 100%, 69%));
+  background-image: linear-gradient(139deg, #010627, hsl(202, 100%, 69%));
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -1,6 +1,15 @@
 @use "sass:color";
 @use "sass:map";
-
+@use "./variables" as vars;
+@mixin respond-up($point) {
+  @if map.has-key(vars.$breakpoints, $point) {
+    @media (min-width: map.get(vars.$breakpoints, $point)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$point}`.";
+  }
+}
 @mixin glass-card(
  $width: min(60rem, 90%),
   $height: 60rem,
@@ -40,4 +49,9 @@
     position: relative;
     z-index: 2;
   }
+}
+
+@mixin font-smoothing($webkit: antialiased, $moz: grayscale) {
+  -webkit-font-smoothing: $webkit;
+  -moz-osx-font-smoothing: $moz;
 }
