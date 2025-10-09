@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "sass:map";
+@use "pages/contact-us";
 * {
   margin: 0;
 }
@@ -31,10 +32,10 @@ $breakpoints: (mobile: 767px, tablet: 1000px);
 /* ===========================
    FÄRGER OCH SKUGGOR
 =========================== */
-$gradient-primary: linear-gradient(135deg, $primary, $sky);
+$gradient-primary: linear-gradient(120deg, $primary, $sky);
 $gradient-accent: linear-gradient(60deg, $accent, $sky);
 $navbar-bg: color.mix(white, $accent-sky, 90%);
-$shadow-glow: 0 10px 40px -10px hsla(168, 62%, 52%, 0.3);
+$shadow-glow: 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
 $shadow-soft: 0 4px 20px hsla(210, 20%, 16%, 0.10);
 
 /* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
@@ -214,7 +215,7 @@ h2 {
 }
 
 .bg-gradient-accent {
-  background-image: $gradient-accent;
+  background-image: $gradient-primary;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -229,36 +230,4 @@ h2 {
 
 .text-primary-foreground {
   color: $primary-foreground;
-}
-.contact-us {
-  width: 100%;
-  height: 100vh;
-  background: $gradient-primary;
-  justify-content: center;
-  .section-left {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    width: 50%;
-    height: 100%;
-
-    color: $shadow-soft;
-    align-items: center;
-    text-align: center;
-    font-size: 40px;
-    text-align: start;
-  }
-  .title {
-    text-align: start;
-    font-size: 25px;
-    color: $accent;
-  }
-  #info {
-    color: $primary-foreground;
-    font-size: 15px;
-  }
-  .main-text {
-    max-width: 430px;
-    color: white;
-  }
 }
