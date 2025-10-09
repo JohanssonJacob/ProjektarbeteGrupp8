@@ -1,24 +1,11 @@
 @use "sass:color";
 @use "sass:map";
+@use './variables' as *;
 @use "pages/contact-us";
 * {
   margin: 0;
 }
 
-/* ===========================
-   VARIABLER
-=========================== */
-$primary: black;
-$primary-foreground: hsl(0, 5%, 81%);
-$accent: hsl(168 62% 52%);
-$sky: hsl(202 100% 69%);
-$accent-sky: $sky; // alias för kompatibilitet
-
-$breakpoints: (mobile: 767px, tablet: 1000px);
-
-/* ===========================
-   MIXINS
-=========================== */
 @mixin respond-up($point) {
   @if map.has-key($breakpoints, $point) {
     @media (min-width: map.get($breakpoints, $point)) {
@@ -33,7 +20,7 @@ $breakpoints: (mobile: 767px, tablet: 1000px);
    FÄRGER OCH SKUGGOR
 =========================== */
 $gradient-primary: linear-gradient(120deg, $primary, $sky);
-$gradient-accent: linear-gradient(60deg, $accent, $sky);
+$gradient-accent: linear-gradient(400deg, $accent, $sky);
 $navbar-bg: color.mix(white, $accent-sky, 90%);
 $shadow-glow: 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
 $shadow-soft: 0 4px 20px hsla(210, 20%, 16%, 0.10);

@@ -2,20 +2,61 @@
 @import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap";
 .contact-us {
   display: flex;
-  background: linear-gradient(120deg, black, hsl(202, 100%, 69%));
-  width: 100%;
-  height: 100vh;
+  background: linear-gradient(139deg, #010627, hsl(202, 100%, 69%));
+  min-height: 100dvh;
   justify-content: center;
+  align-items: center;
+}
+.contact-us .container {
+  display: flex;
+  width: 80%;
 }
 .contact-us .section-left {
-  margin-top: 25rem;
   width: 50%;
   height: 100%;
+  align-items: center;
   color: 0 4px 20px hsla(210, 20%, 16%, 0.1);
   align-items: center;
-  text-align: center;
   font-size: 40px;
   text-align: start;
+  padding: 3rem;
+}
+.contact-us .contact-icon {
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  border: 1px solid, 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
+  margin: 1rem;
+  gap: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  border: 0.2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.contact-us .contact-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 197, 94, 0.3);
+  filter: blur(12px);
+  margin: -20px;
+  z-index: 1;
+}
+.contact-us .contact-icon > * {
+  position: relative;
+  z-index: 2;
+}
+.contact-us .icon-btn {
+  color: green;
 }
 .contact-us .title {
   text-align: start;
@@ -31,56 +72,75 @@
   color: white;
 }
 .contact-us .right-section {
+  width: 50%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 .contact-us .glas-card {
-  width: 60rem;
-  height: 60rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(60rem, 90%);
+  height: 60rem;
+  border: 0.2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
-.contact-us .glas-card:before {
+.contact-us .glas-card::before {
   content: "";
   position: absolute;
-  background: inherit;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(250, 253, 255, 0.5);
-  filter: blur(20rem);
+  inset: 0;
+  background: rgba(250, 253, 255, 0.6);
+  filter: blur(30rem);
   margin: -20px;
-  z-index: 20;
+  z-index: 1;
+}
+.contact-us .glas-card > * {
+  position: relative;
+  z-index: 2;
 }
 .contact-us .contact-form {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  gap: 1rem;
+  width: 100%;
+  max-width: 90%;
+  font-size: 15px;
+}
+.contact-us .contact-form .contact-label {
+  color: white;
+}
+.contact-us .contact-form .form-group {
+  width: 100%;
 }
 .contact-us .contact-form .contact-input {
-  display: flex;
   width: 100%;
+  left: 0;
+  padding: 1rem;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin-bottom: 1rem;
 }
 .contact-us .contact-form .input-textarea {
   display: flex;
   width: 100%;
-  margin: 10px;
-  padding: 3rem;
+  padding: 3rem 1rem;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 20px;
 }
 
 * {
   margin: 0;
 }
 
-/* ===========================
-   VARIABLER
-=========================== */
-/* ===========================
-   MIXINS
-=========================== */
 /* ===========================
    FÄRGER OCH SKUGGOR
 =========================== */
@@ -100,7 +160,7 @@ body {
   font-size: xx-small;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: black;
+  color: #010627;
 }
 
 h1,
@@ -114,7 +174,7 @@ h6,
   font-family: var(--font-ui);
   font-weight: 400;
   line-height: 1.15;
-  color: black;
+  color: #010627;
 }
 
 h1 {
@@ -150,7 +210,7 @@ h2 {
 
 .pages-link {
   text-decoration: none;
-  color: black;
+  color: #010627;
   margin-right: 5px;
   padding: 0.4rem 0.65rem;
   border-radius: 0.45rem;
@@ -256,7 +316,7 @@ h2 {
 }
 
 .bg-gradient-accent {
-  background-image: linear-gradient(120deg, black, hsl(202, 100%, 69%));
+  background-image: linear-gradient(120deg, #010627, hsl(202, 100%, 69%));
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -266,7 +326,7 @@ h2 {
 }
 
 .text-primary {
-  color: black;
+  color: #010627;
 }
 
 .text-primary-foreground {

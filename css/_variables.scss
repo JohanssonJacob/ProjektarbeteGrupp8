@@ -1,14 +1,14 @@
 @use "sass:color";
 @use "sass:map";
 
-$primary: black;
+$primary: #010627;
 $primary-foreground: hsl(0, 5%, 81%);
 $accent: hsl(168 62% 52%);
 $sky: hsl(202 100% 69%);
 $accent-sky: $sky; // alias för kompatibilitet
 
 $breakpoints: (mobile: 767px, tablet: 1000px);
-$gradient-primary: linear-gradient(120deg, $primary, $sky);
+$gradient-primary: linear-gradient(139deg, $primary, $sky);
 $gradient-accent: linear-gradient(60deg, $accent, $sky);
 $navbar-bg: color.mix(white, $accent-sky, 90%);
 $shadow-glow: 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
