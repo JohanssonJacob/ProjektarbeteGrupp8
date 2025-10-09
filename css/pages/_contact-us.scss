@@ -34,7 +34,7 @@
 
   .right-section {
     display: flex;
-    align-items: center;
+    justify-content: center;
   }
   .glas-card {
     width: 60rem;
@@ -53,18 +53,22 @@
     right: 0;
     bottom: 0;
     background: rgba(250, 253, 259, 0.5);
-    filter: blur(25rem);
+    filter: blur(20rem);
+    margin: -20px;
+    z-index: 20;
   }
   .contact-form {
     display: flex;
     flex-direction: column;
     margin: 1rem;
+
     .contact-input {
       display: flex;
-      margin: 1rem;
-      padding: 1rem;
+      width: 100%;
     }
     .input-textarea {
+      display: flex;
+      width: 100%;
       margin: 10px;
       padding: 3rem;
     }

@@ -32,7 +32,7 @@
 }
 .contact-us .right-section {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 .contact-us .glas-card {
   width: 60rem;
@@ -51,7 +51,9 @@
   right: 0;
   bottom: 0;
   background: rgba(250, 253, 255, 0.5);
-  filter: blur(25rem);
+  filter: blur(20rem);
+  margin: -20px;
+  z-index: 20;
 }
 .contact-us .contact-form {
   display: flex;
@@ -60,10 +62,11 @@
 }
 .contact-us .contact-form .contact-input {
   display: flex;
-  margin: 1rem;
-  padding: 1rem;
+  width: 100%;
 }
 .contact-us .contact-form .input-textarea {
+  display: flex;
+  width: 100%;
   margin: 10px;
   padding: 3rem;
 }
