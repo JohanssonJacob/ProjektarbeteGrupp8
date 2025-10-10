@@ -1,23 +1,16 @@
 @use "sass:color";
 @use "sass:map";
+@use './variables' as *;
+@use "pages/contact-us";
+@use "./mixins" as mx;
+
 * {
   margin: 0;
 }
+@function fs($key) {
+  @return map-get($font-sizes, $key);
+}
 
-/* ===========================
-   VARIABLER
-=========================== */
-$primary: black;
-$primary-foreground: hsl(0 0% 100%);
-$accent: hsl(168 62% 52%);
-$sky: hsl(202 100% 69%);
-$accent-sky: $sky; // alias för kompatibilitet
-
-$breakpoints: (mobile: 767px, tablet: 1000px);
-
-/* ===========================
-   MIXINS
-=========================== */
 @mixin respond-up($point) {
   @if map.has-key($breakpoints, $point) {
     @media (min-width: map.get($breakpoints, $point)) {
@@ -29,55 +22,30 @@ $breakpoints: (mobile: 767px, tablet: 1000px);
 }
 
 /* ===========================
-   FÄRGER OCH SKUGGOR
-=========================== */
-$gradient-primary: linear-gradient(135deg, $primary, $sky);
-$gradient-accent: linear-gradient(135deg, $accent, $sky);
-$navbar-bg: color.mix(white, $accent-sky, 90%);
-$shadow-glow: 0 10px 40px -10px hsla(168, 62%, 52%, 0.3);
-$shadow-soft: 0 4px 20px hsla(210, 63%, 16%, 0.10);
 
 /* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap";
 
 :root {
-  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};
 }
 
 /* Bas-typografi (mobile-first) */
 html,
 body {
-  font-family: var(--font-heading);
-  font-weight: 200;
-  font-size: xx-small;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: $primary;
+  @include mx.respond-up(md) {
+    font-size: 1.0625rem;
+  }
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.brand .brand-title,
-.text-heading {
-  font-family: var(--font-ui);
-  font-weight: 600;
-  line-height: 1.15;
-  color: $primary;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-h2 {
-  font-size: 1.5rem;
+.grid {
+  display: grid;
+  @include mx.respond-up(md) {
+    gap: 1.5rem;
+  }
+  @include mx.respond-up(lg) {
+    gap: 2rem;
+  }
 }
 
 .font-ui {
@@ -214,7 +182,7 @@ h2 {
 }
 
 .bg-gradient-accent {
-  background-image: $gradient-accent;
+  background-image: $gradient-primary;
   display: inline-flex;
   align-items: center;
   justify-content: center;
