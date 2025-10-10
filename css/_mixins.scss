@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "sass:map";
 @use "./variables" as vars;
+
 @mixin respond-up($point) {
   @if map.has-key(vars.$breakpoints, $point) {
     @media (min-width: map.get(vars.$breakpoints, $point)) {
@@ -10,46 +11,40 @@
     @warn "Unknown breakpoint `#{$point}`.";
   }
 }
-@mixin glass-card(
- $width: min(60rem, 90%),
-  $height: 60rem,
-  $tint: rgba(250, 253, 255, 0.40),
-  $bg: rgba(255, 255, 255, 0.04),  
-  $blur: 30rem  
-) {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// @mixin glass-card(
+//  $width: min(60rem, 90%),
+//   $height: 60rem,
+//   $tint: rgba(250, 253, 255, 0.40),
+//   $bg: rgba(255, 255, 255, 0.04),
+//   $blur: 30rem  ,
+//   $br
+// ) {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  width: $width;
-  height: $height;
+//   width: $width;
+//   height: $height;
 
-  border: 0.2px solid rgba(255, 255, 255, 0.7);
-  border-radius: 20px;
-  overflow: hidden;
+//   border: 0.2px solid rgba(255, 255, 255, 0.7);
+//   border-radius: 20px;
+//   overflow: hidden;
 
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+//   background: rgba(255, 255, 255, 0.04);
+//   backdrop-filter: blur(8px);
+//   -webkit-backdrop-filter: blur(8px);
 
-  // glow/glas-overlay bakom innehållet
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: $tint;
-    filter: blur($blur);
-    margin: -20px;
-    z-index: 1;
-  }
-
-  // Se till att innehållet ligger över overlayn
-  > * {
-    position: relative;
-    z-index: 2;
-  }
-}
+//   // glow/glas-overlay
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background: $tint;
+//     filter: blur($blur);
+//     margin: -20px;
+//     z-index: 1;
+//   }
 
 @mixin font-smoothing($webkit: antialiased, $moz: grayscale) {
   -webkit-font-smoothing: $webkit;
