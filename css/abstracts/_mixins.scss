@@ -1,15 +1,25 @@
 @use "sass:color";
 @use "sass:map";
-@use "./variables" as vars;
-
-@mixin respond-up($point) {
-  @if map.has-key(vars.$breakpoints, $point) {
-    @media (min-width: map.get(vars.$breakpoints, $point)) {
+@use "./variables" as *;
+// get breakpint for mediaquery
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $key: $breakpoint);
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+    @media #{$query} {
       @content;
     }
   } @else {
-    @warn "Unknown breakpoint `#{$point}`.";
+    @error 'No value found for `#{$breakpoint}`. ' + 'Please make sure it is defined in `$breakpoints` map.';
   }
+}
+// get fontsize
+@function fs($key) {
+  @return map-get($font-sizes, $key);
 }
 // @mixin glass-card(
 //  $width: min(60rem, 90%),
@@ -45,8 +55,3 @@
 //     margin: -20px;
 //     z-index: 1;
 //   }
-
-@mixin font-smoothing($webkit: antialiased, $moz: grayscale) {
-  -webkit-font-smoothing: $webkit;
-  -moz-osx-font-smoothing: $moz;
-}
