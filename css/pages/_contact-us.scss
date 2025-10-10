@@ -116,9 +116,9 @@
     bottom: 0;
     background: inherit;
     box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.3);
-    filter: blur(50px);
+    filter: blur(10px);
     margin: -20px;
-
+    z-index: -1;
     padding: 1rem;
   }
 
