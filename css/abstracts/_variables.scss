@@ -15,12 +15,19 @@ $sky: hsl(202 100% 69%);
 $accent-sky: $sky; // alias för kompatibilitet
 
 /* Breakpoints (min-width)  */
-$breakpoints: (xs: 480px, sm: 640px, md: 768px, lg: 1024px, xl: 1280px) !default;
+$breakpoints: (
+  'small':(min-width:480px),
+  'medium': (min-width: 800px),
+  'large': (min-width: 1000px),
+  'huge': (min-width: 1200px)
+);
+
 $gradient-primary: linear-gradient(139deg, $primary, $sky);
 $gradient-accent: linear-gradient(60deg, $accent, $sky);
-$navbar-bg: color.mix(white, $accent-sky, 90%);
+$navbar-bg: color.mix(white, $sky, 80%);
 $shadow-glow: 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
 $shadow-soft: 0 4px 20px hsla(210, 20%, 16%, 0.10);
+$dark-blue: #0f2741;
 
 $font-sizes: (sm: 0.875rem, base: 1rem, lg: 1.125rem) !default;
 $body-size: clamp(1rem, 0.6rem + 1vw, 1.125rem) !default;

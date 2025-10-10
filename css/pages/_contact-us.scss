@@ -1,16 +1,16 @@
-@use "../variables.scss" as *;
-@use "../mixins" as *;
-
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins";
 .contact-us {
   display: flex;
+  overflow: auto;
   background: $gradient-primary;
 
   min-height: 100dvh;
   justify-content: center;
   justify-items: center;
   align-items: center;
-
   overflow: hidden;
+
   .container {
     display: flex;
     width: 80%;
