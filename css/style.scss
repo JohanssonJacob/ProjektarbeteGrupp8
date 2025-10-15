@@ -2,24 +2,18 @@
 @use "sass:map";
 @use "./pages/services";
 
+@use "./abstracts/variables" as *;
+@use "pages/contact-us";
+@use "./abstracts/mixins" as mx;
+
 * {
   margin: 0;
 }
 
-/* ===========================
-   VARIABLER
-=========================== */
-$primary: black;
-$primary-foreground: hsl(0 0% 100%);
-$accent: hsl(168 62% 52%);
-$sky: hsl(202 100% 69%);
-$accent-sky: $sky; // alias för kompatibilitet
+@function fs($key) {
+  @return map-get($font-sizes, $key);
+}
 
-$breakpoints: (mobile: 767px, tablet: 1000px);
-
-/* ===========================
-   MIXINS
-=========================== */
 @mixin respond-up($point) {
   @if map.has-key($breakpoints, $point) {
     @media (min-width: map.get($breakpoints, $point)) {
@@ -31,55 +25,31 @@ $breakpoints: (mobile: 767px, tablet: 1000px);
 }
 
 /* ===========================
-   FÄRGER OCH SKUGGOR
-=========================== */
-$gradient-primary: linear-gradient(135deg, $primary, $sky);
-$gradient-accent: linear-gradient(135deg, $accent, $sky);
-$navbar-bg: color.mix(white, $accent-sky, 90%);
-$shadow-glow: 0 10px 40px -10px hsla(168, 62%, 52%, 0.3);
-$shadow-soft: 0 4px 20px hsla(210, 63%, 16%, 0.10);
 
 /* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap";
 
 :root {
-  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};
 }
 
 /* Bas-typografi (mobile-first) */
 html,
 body {
-  font-family: var(--font-heading);
-  font-weight: 200;
-  font-size: xx-small;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: $primary;
+  font-size: fs(sm);
+  @include mx.respond-to('medium') {
+    font-size: fs(lg);
+  }
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.brand .brand-title,
-.text-heading {
-  font-family: var(--font-ui);
-  font-weight: 600;
-  line-height: 1.15;
-  color: $primary;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-h2 {
-  font-size: 1.5rem;
+.grid {
+  display: grid;
+  @include mx.respond-to('medium') {
+    gap: 1rem;
+  }
+  @include mx.respond-to('large') {
+    gap: 2rem;
+  }
 }
 
 .font-ui {
@@ -88,40 +58,50 @@ h2 {
 .font-heading {
   font-family: var(--font-heading);
 }
+header {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+}
 .navbar {
   display: flex;
-  background: $navbar-bg;
+  align-items: center;
   justify-content: space-evenly;
+  justify-items: end;
+  background: $navbar-bg;
   width: 100%;
+  height: 4rem;
 }
 .nav-pages {
-  margin-left: auto;
-
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
   gap: 1rem;
-}
-.pages-link {
-  text-decoration: none;
-  color: $primary;
-  margin-right: 5px;
-  padding: 0.4rem 0.65rem;
-  border-radius: 0.45rem;
-  background-position: 0 100%;
-  background-size: 0% 2px;
-  background-repeat: no-repeat;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+  font-weight: 700;
 }
 
-.logo {
+.pages-link {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
+  text-decoration: none;
+  color: $dark-blue;
+  margin-right: 1.5rem;
+}
+.logo-link {
+  display: inline-flex;
+}
+.logo {
+  height: 65px;
   width: auto;
-  padding: 0.35rem 0.6rem;
-  margin-left: 10rem;
-  background: transparent;
   object-fit: contain;
+  align-items: center;
+  padding: 1rem;
+  background: inherit;
+
+  border-radius: 100px;
 }
 
 /* ===========================
@@ -132,28 +112,28 @@ h2 {
     height: 48px;
   }
   .pages-link {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
     font-size: medium;
     margin-right: 50px;
   }
 }
 .site-footer {
-  background: linear-gradient(180deg, #0d2336 0%, #102f45 100%);
+  background: linear-gradient(180deg, #0d2336 0%, #102f45 90%);
   color: #d8e1e8;
   padding: 4rem 1.5rem 2rem;
   font-family: var(--font-ui);
   font-size: 2rem;
   gap: 2rem 2rem;
   justify-content: space-evenly;
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    gap: 2rem 2rem;
-    justify-content: space-evenly;
-
-    @include respond-up(tablet) {
-      grid-template-columns: 2fr 1fr 1fr;
-    }
+    display: flex;
+    gap: 3rem 2rem;
+    justify-content: space-between;
   }
 
   .footer-col {
@@ -216,7 +196,7 @@ h2 {
 }
 
 .bg-gradient-accent {
-  background-image: $gradient-accent;
+  background-image: $gradient-primary;
   display: inline-flex;
   align-items: center;
   justify-content: center;
