@@ -4,54 +4,19 @@
 // get breakpint for mediaquery
 @mixin respond-to($breakpoint) {
   $raw-query: map-get($breakpoints, $key: $breakpoint);
-  @if $raw-query {
-    $query: if(
-      type-of($raw-query) == 'string',
-      unquote($raw-query),
-      inspect($raw-query)
-    );
-    @media #{$query} {
-      @content;
-    }
-  } @else {
-    @error 'No value found for `#{$breakpoint}`. ' + 'Please make sure it is defined in `$breakpoints` map.';
+  @if $raw-query == null {
+    @error "No value found for `#{$breakpoint}` in `$breakpoints` map.";
+  }
+  @media #{unquote($raw-query)} {
+    @content;
   }
 }
 // get fontsize
 @function fs($key) {
-  @return map-get($font-sizes, $key);
+  @if map.has-key($font-sizes, $key) {
+    @return map.get($font-sizes, $key);
+  } @else {
+    @warn "fs() : Unknown key `#{$key}`. Falling back to `md`.";
+    @return map.get($font-sizes, md);
+  }
 }
-// @mixin glass-card(
-//  $width: min(60rem, 90%),
-//   $height: 60rem,
-//   $tint: rgba(250, 253, 255, 0.40),
-//   $bg: rgba(255, 255, 255, 0.04),
-//   $blur: 30rem  ,
-//   $br
-// ) {
-//   position: relative;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-
-//   width: $width;
-//   height: $height;
-
-//   border: 0.2px solid rgba(255, 255, 255, 0.7);
-//   border-radius: 20px;
-//   overflow: hidden;
-
-//   background: rgba(255, 255, 255, 0.04);
-//   backdrop-filter: blur(8px);
-//   -webkit-backdrop-filter: blur(8px);
-
-//   // glow/glas-overlay
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     inset: 0;
-//     background: $tint;
-//     filter: blur($blur);
-//     margin: -20px;
-//     z-index: 1;
-//   }
