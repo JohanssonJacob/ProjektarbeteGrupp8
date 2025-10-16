@@ -1,5 +1,7 @@
 @use "sass:color";
 @use "sass:map";
+@use "./pages/services";
+@use "./abstracts/variables" as *;
 @use "pages/contact-us";
 @use "./abstracts/mixins" as mx;
 @use "./base/typoraphy" as *;
