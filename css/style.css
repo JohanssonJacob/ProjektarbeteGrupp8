@@ -369,7 +369,7 @@
 .about-title {
   background: #f5f5f5;
   border-bottom: 1px solid rgb(224.52, 225.12, 229.08);
-  padding-block: 1.75rem 1rem;
+  padding-block: 3.75rem 1rem;
 }
 .about-title .first-container {
   max-width: 1100px;
@@ -382,7 +382,7 @@
   }
 }
 .about-title .about {
-  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   line-height: 1.15;
   color: #010627;
@@ -390,17 +390,16 @@
   margin: 0 0 0.25rem;
 }
 .about-title .company {
-  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
   color: #010627;
   opacity: 0.95;
-  font-size: 1.125rem;
+  font-size: 2.2rem;
   margin: 0 0 0.25rem;
 }
 .about-title .phrase {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-style: italic;
-  font-size: 1rem;
   margin: 0;
   position: relative;
   padding-bottom: 0.4rem;
@@ -433,7 +432,7 @@
   }
 }
 .perfektion .history {
-  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
   font-weight: 500;
   color: #010627;
@@ -451,7 +450,7 @@
   background: hsl(168, 62%, 52%);
 }
 .perfektion p {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-size: clamp(1rem, 0.6rem + 1vw, 1.125rem);
   font-weight: 400;
   line-height: 1.7;
@@ -460,7 +459,7 @@
 }
 @media (min-width: 768px) {
   .perfektion p {
-    font-size: 1.125rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -493,7 +492,7 @@
   }
 }
 .team #team-title {
-  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-size: clamp(1.75rem, 1rem + 2vw, 2.25rem);
   font-weight: 700;
   color: #010627;
@@ -553,14 +552,14 @@
   margin-bottom: 1rem;
 }
 .team .employee-card h3 {
-  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 2.2rem;
   color: #010627;
   margin: 0.25rem 0;
 }
 .team .employee-card .role {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
   color: #040404;
   margin-bottom: 0.75rem;
@@ -575,15 +574,14 @@
   text-decoration: underline;
 }
 .team .employee-card .desc {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1rem;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   color: rgb(0.15, 0.9, 5.85);
   line-height: 1.6;
   margin-top: 0.75rem;
 }
 
 .reviews {
-  background: rgb(239.19, 249.203, 255);
+  background: rgb(223.38, 243.406, 255);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -603,7 +601,7 @@
   }
 }
 .reviews #reviews-title {
-  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
   font-size: clamp(1.75rem, 1rem + 2vw, 2.25rem);
   color: #010627;
@@ -651,19 +649,18 @@
 }
 .reviews .review .stars {
   font-size: 1.2rem;
-  color: #FFD700;
+  color: #ffd700;
   margin-bottom: 0.5rem;
 }
 .reviews .review .comment {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   color: rgb(0.15, 0.9, 5.85);
   margin-bottom: 0.75rem;
-  font-size: 1rem;
   line-height: 1.6;
-  font-style: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-style: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
 }
 .reviews .review .customer {
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   color: hsl(168, 62%, 52%);
 }
@@ -676,21 +673,13 @@
   color: white;
   font-weight: 600;
   cursor: pointer;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1rem;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
 }
 .reviews .show-more-btn:hover {
   background: rgb(86.853, 199.8945, 235.7832);
   transform: translateY(-2px);
 }
 
-* {
-  margin: 0;
-}
-
-/* ===========================
-
-/* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
 :root {
   --nav-h: 64px;
 }

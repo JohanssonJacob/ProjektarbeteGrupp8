@@ -65,14 +65,14 @@ body {
     background: transparent;
   }
 }
-@include mx.respond-to(sm) {
+@include mx.respond-up(sm) {
   .logo {
     height: 3rem;
     width: auto;
     align-self: flex-start;
   }
 }
-@include mx.respond-to(md) {
+@include mx.respond-up(md) {
   .site-nav {
     justify-content: center;
     justify-items: center;
