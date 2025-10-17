@@ -1,37 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 // --- Tokens ---------------------------------------------------------------
-$space-1: 0.25rem; // 4px
-$space-2: 0.5rem; // 8px
-$space-3: 0.75rem; // 12px
-$space-4: 1rem; // 16px
-$space-5: 1.25rem; // 20px
-$space-6: 1.5rem; // 24px
-$space-7: 2rem; // 32px
-$space-8: 2.5rem; // 40px
-$radius-sm: 10px;
-$radius-md: 14px;
-$radius-lg: 20px;
-$radius-xl: 30px;
-
-$shadow-soft-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
-
-// Provided earlier
-$accent-sky: #61c2ff;
-$accent-sky-10: rgba(97, 194, 255, 0.1);
-$accent-sky-20: rgba(97, 194, 255, 0.2);
-$accent-sky-30: rgba(97, 194, 255, 0.3);
-$accent-sky-40: rgba(97, 194, 255, 0.4);
-
-// Fallbacks if your palette is missing in this scope (safe defaults)
-$on-dark: if(
-  global-variable-exists(primary-foreground),
-  $primary-foreground,
-  rgba(255, 255, 255, 0.9)
-);
-$text-dim: rgba(255, 255, 255, 0.75);
-$border-dim: rgba(255, 255, 255, 0.45);
-$border-bright: rgba(255, 255, 255, 0.75);
 
 // --- Layout ---------------------------------------------------------------
 .contact-us {
