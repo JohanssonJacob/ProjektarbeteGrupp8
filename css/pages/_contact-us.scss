@@ -14,7 +14,7 @@
   place-items: center;
 
   overflow: hidden;
-  @include respond-to(sm) {
+  @include respond-up(sm) {
     padding: clamp($space-2, 4vh, $space-8);
   }
 
@@ -27,7 +27,7 @@
 
     background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
 
-    @include respond-to(md) {
+    @include respond-up(md) {
       display: grid;
       padding: clamp($space-5, 3.5vw, $space-8);
       border-radius: $radius-xl;
@@ -41,7 +41,7 @@
       backdrop-filter: blur(4px);
       box-shadow: $shadow-soft-lg;
     }
-    @include respond-to(lg) {
+    @include respond-up(lg) {
       width: min(1200px, 100%);
       display: grid;
       padding: clamp($space-2, 3.5vw, $space-8);

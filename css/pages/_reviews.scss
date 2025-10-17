@@ -1,8 +1,8 @@
 @use "sass:map";
 @use "sass:color";
-@use "../variables" as *; 
-@use "../mixins" as *;
-
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../base/typoraphy" as *;
 .reviews {
   background: $navbar-bg;
   min-height: 100vh;
@@ -13,8 +13,12 @@
   padding: 4rem 1rem 3rem;
   min-height: 250px;
 
-  @include respond-up(md) { padding: 6rem 2rem 4rem; }
-  @include respond-up(lg) { padding: 8rem 2rem 6rem; }
+  @include respond-up(md) {
+    padding: 6rem 2rem 4rem;
+  }
+  @include respond-up(lg) {
+    padding: 8rem 2rem 6rem;
+  }
 
   #reviews-title {
     font-family: $font-heading;
@@ -50,8 +54,12 @@
     width: min(750px, 100%);
     text-align: center;
 
-    @include respond-up(md) { width: calc(50% - 0.75rem); }
-    @include respond-up(lg) { width: calc(33.333% - 1rem); }
+    @include respond-up(md) {
+      width: calc(50% - 0.75rem);
+    }
+    @include respond-up(lg) {
+      width: calc(33.333% - 1rem);
+    }
 
     &:hover {
       transform: translateY(-4px);
@@ -60,7 +68,7 @@
 
     .stars {
       font-size: 1.2rem;
-      color: #FFD700;
+      color: #ffd700;
       margin-bottom: 0.5rem;
     }
 

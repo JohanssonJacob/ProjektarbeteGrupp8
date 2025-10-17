@@ -2,7 +2,7 @@
 @use "sass:map";
 @use "./variables" as *;
 // get breakpint for mediaquery
-@mixin respond-to($breakpoint) {
+@mixin respond-up($breakpoint) {
   $raw-query: map-get($breakpoints, $key: $breakpoint);
   @if $raw-query == null {
     @error "No value found for `#{$breakpoint}` in `$breakpoints` map.";

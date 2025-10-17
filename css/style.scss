@@ -10,7 +10,6 @@
 @use "./abstracts/variables" as *;
 @use "components/navbar";
 
-
 html,
 body {
   margin: 0;
@@ -32,7 +31,7 @@ body {
    RESPONSIVE
 =========================== */
 
-@include mx.respond-to(md) {
+@include mx.respond-up(md) {
   .logo {
     height: 60px;
   }
@@ -56,7 +55,7 @@ body {
     font-size: mx.fs(md);
     padding: 2px;
   }
-  @include mx.respond-to(md) {
+  @include mx.respond-up(md) {
   }
 
   .container {
@@ -66,7 +65,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     gap: 2rem;
-    @include mx.respond-to(sm) {
+    @include mx.respond-up(sm) {
       display: flex;
       flex-direction: column;
       flex-direction: row;
@@ -107,7 +106,7 @@ body {
         text-align: left;
       }
     }
-    @include mx.respond-to(sm) {
+    @include mx.respond-up(sm) {
       padding: 1rem;
       justify-content: flex-start;
       align-items: flex-start;
@@ -123,7 +122,7 @@ body {
     font-size: mx.fs(sm);
     max-width: 300px;
   }
-  @include mx.respond-to(md) {
+  @include mx.respond-up(md) {
     .footer-col {
       line-height: 1;
       font-size: mx.fs(lg);
