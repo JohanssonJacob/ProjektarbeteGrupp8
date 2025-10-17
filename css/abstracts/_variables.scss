@@ -1,0 +1,53 @@
+@use "sass:color";
+@use "sass:map";
+$space-1: 0.25rem; // 4px
+$space-2: 0.5rem; // 8px
+$space-3: 0.75rem; // 12px
+$space-4: 1rem; // 16px
+$space-5: 1.25rem; // 20px
+$space-6: 1.5rem; // 24px
+$space-7: 2rem; // 32px
+$space-8: 2.5rem; // 40px
+$radius-sm: 10px;
+$radius-md: 14px;
+$radius-lg: 20px;
+$radius-xl: 30px;
+$on-dark: if(
+  global-variable-exists(primary-foreground),
+  $primary-foreground,
+  rgba(255, 255, 255, 0.9)
+);
+
+$text-dim: rgba(255, 255, 255, 0.75);
+$border-dim: rgba(255, 255, 255, 0.45);
+$border-bright: rgba(255, 255, 255, 0.75);
+$font-weight-regular: 400 !default;
+$font-sizes: (sm: 0.875rem, base: 1rem, lg: 1.125rem) !default;
+$body-size: clamp(1rem, 0.6rem + 1vw, 1.125rem);
+$primary: #010627;
+$primary-foreground: hsl(0, 5%, 81%);
+$accent: hsl(168 62% 52%);
+$sky: hsl(202 100% 69%);
+$accent-sky: $sky;
+$shadow-soft-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+/* Breakpoints (min-width)  */
+$breakpoints: (
+  sm: "(min-width: 480px)",
+  md: "(min-width: 768px)",
+  lg: "(min-width: 1024px)",
+  xl: "(min-width: 1280px)"
+);
+$accent-sky-20: rgba(97, 194, 255, 0.2);
+$accent-sky-30: rgba(97, 194, 255, 0.3);
+$accent-sky-40: rgba(97, 194, 255, 0.4);
+$gradient-primary: linear-gradient(139deg, $primary, $sky);
+$gradient-accent: linear-gradient(60deg, $accent, $sky);
+$navbar-bg: color.mix(white, $sky, 80%);
+$shadow-glow: 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
+$shadow-soft: 0 4px 20px hsla(210, 20%, 16%, 0.10);
+$dark-blue: #052950;
+
+$font-sizes: (sm:0.875rem, md:1.2rem, lg:2.2rem);
+$body-size: clamp(1rem, 0.6rem + 1vw, 1.125rem) !default;
+$primary: #0b1020 !default;

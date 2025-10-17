@@ -1,150 +1,271 @@
-@use "../variables.scss" as *;
-@use "../mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+// --- Tokens ---------------------------------------------------------------
 
+// --- Layout ---------------------------------------------------------------
 .contact-us {
-  display: flex;
-  background: $gradient-primary;
-
+  background-image: url("/assets/towfiqu-barbhuiya--9gPKrsbGmc-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
   min-height: 100dvh;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
+
+  place-items: center;
 
   overflow: hidden;
+  @include respond-to(sm) {
+    padding: clamp($space-2, 4vh, $space-8);
+  }
+
   .container {
-    display: flex;
-    width: 80%;
-    height: 80dvh;
-    justify-content: center;
-  }
-  .section-left {
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    padding: clamp($space-6, 4vh, $space-8);
+    margin-top: clamp(3rem, 4vh, $space-8);
+    backdrop-filter: blur(4px);
+    flex-direction: column;
 
-    color: $shadow-soft;
+    background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
 
-    font-size: 40px;
+    @include respond-to(md) {
+      display: grid;
+      padding: clamp($space-5, 3.5vw, $space-8);
+      border-radius: $radius-xl;
+      border: 1px solid $border-dim;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: clamp($space-6, 4vw, $space-8);
+      align-items: stretch;
+      background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
+      color: $on-dark;
 
-    padding: 3rem;
-  }
-  .main-text {
-    margin-bottom: 2rem;
-    align-items: start;
-  }
-  .contact-icons {
-    display: inline-block;
-  }
+      backdrop-filter: blur(4px);
+      box-shadow: $shadow-soft-lg;
+    }
+    @include respond-to(lg) {
+      width: min(1200px, 100%);
+      display: grid;
+      padding: clamp($space-2, 3.5vw, $space-8);
+      border-radius: $radius-xl;
+      border: 1px solid $border-dim;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp($space-6, 4vw, $space-8);
+      align-items: stretch;
+      background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
+      color: $on-dark;
 
-  .contact-li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-  .tel-text {
-    color: white;
-    font-size: 1.5rem;
-    .tel-number {
-      font-size: 14px;
+      backdrop-filter: blur(4px);
+      box-shadow: $shadow-soft-lg;
     }
   }
 
-  .contact-icon {
-    display: inline;
-    align-items: flex-start;
-    justify-content: flex-start;
-    justify-items: flex-start;
-    font-size: 1rem;
-    padding: 10px;
-    color: rgba(34, 197, 94, 0.8);
+  // --- Left side ---------------------------------------------------------
+  .section-left {
+    .title {
+      text-align: start;
+      font-size: clamp(22px, 2.3vw, 28px);
+      color: if(global-variable-exists(accent), $accent, $accent-sky);
+      margin-bottom: $space-4;
+      letter-spacing: 0.2px;
+      font-weight: 700;
+    }
 
-    // @include glass-card(
-    // 1rem,
-    // 1rem,
-    // rgba(34,197,94,0.2),
-    // rgba(255,255,255,0.2),
-    // 30px    ,
-    // 10px
-    // );
-  }
-  .icon-btn {
-    color: green;
+    .main-text {
+      max-width: 50ch;
+      color: $on-dark;
+      margin-bottom: $space-6;
+
+      p {
+        margin: 0 0 $space-2;
+      }
+
+      #info {
+        color: $text-dim;
+        font-size: clamp(14px, 1.4vw, 16px);
+      }
+    }
+
+    .contact-icons {
+      display: grid;
+      gap: $space-4;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      .contact-li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: $space-3;
+        align-items: start;
+      }
+
+      .contact-icon {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        color: rgba(34, 197, 94, 0.95);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid $border-dim;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .tel-text {
+        color: $on-dark;
+        font-size: clamp(15px, 1.5vw, 17px);
+
+        .tel-number {
+          font-size: 14px;
+          color: $text-dim;
+          margin-top: 2px;
+        }
+      }
+    }
   }
 
-  .title {
-    text-align: start;
-    font-size: 25px;
-    color: $accent;
-  }
-  #info {
-    color: $primary-foreground;
-    font-size: 15px;
-  }
-  .main-text {
-    max-width: 430px;
-    color: white;
-  }
-
+  // --- Right side / Form -------------------------------------------------
   .right-section {
     display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background-attachment: fixed;
+    flex-wrap: wrap;
+    place-items: center;
   }
 
-  .glas-card {
-    width: 35rem;
-    height: 40rem;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-    position: relative;
-    border: 0.5px solid white;
-    background: inherit;
-    overflow: hidden;
-    border-radius: 20px;
-    padding: 1rem;
-    z-index: 1;
-
-    // @include glass-card( min(60rem, 100%), 38rem, rgba(250, 253, 255, 0.1));
-  }
-  .glas-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: inherit;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.3);
-    filter: blur(10px);
-    margin: -20px;
-    z-index: -1;
-    padding: 1rem;
+  .glas-container {
+    width: min(480px, 100%);
+    padding: clamp($space-6, 3vw, $space-7);
+    border-radius: $radius-xl;
   }
 
   .contact-form {
-    display: flex;
-    flex-direction: column;
-    font-size: 15px;
-    padding: 1rem;
-    .contact-label {
-      color: white;
-      margin-bottom: 0.5rem;
+    display: grid;
+    gap: $space-4;
+
+    // Group label + input for consistent vertical rhythm
+    .form-group {
+      display: grid;
+      gap: $space-2;
+      flex-wrap: wrap;
     }
 
-    .contact-input {
-      padding: 15px;
-      background: transparent;
-      border: 1px solid white;
-      border-radius: 14px;
-      margin-bottom: 1rem;
+    .contact-label {
+      color: $on-dark;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
     }
+
+    .contact-input,
     .input-textarea {
-      display: flex;
-      padding: 3rem 1rem;
-      background: transparent;
-      border: 1px solid white;
-      border-radius: 20px;
+      width: 100%;
+      padding: $space-4 $space-5;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid $border-dim;
+      border-radius: $radius-md;
+      color: $on-dark;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease,
+        background-color 160ms ease;
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      &:hover {
+        border-color: $border-bright;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      &:focus,
+      &:focus-visible {
+        border-color: $accent-sky;
+        box-shadow: 0 0 0 4px $accent-sky-20;
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+
+    .input-textarea {
+      min-height: 140px;
+      border-radius: $radius-lg;
+      resize: vertical;
+    }
+
+    .contact-btn {
+      justify-self: start;
+      padding: $space-3 $space-6;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      border: 1px solid transparent;
+      background: linear-gradient(
+        180deg,
+        $accent-sky,
+        rgba(97, 194, 255, 0.85)
+      );
+      color: #02263a; // readable on sky
+      transition: transform 120ms ease, box-shadow 160ms ease,
+        background 160ms ease;
+      box-shadow: 0 8px 18px $accent-sky-30;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 22px $accent-sky-40;
+      }
+      &:active {
+        transform: translateY(0);
+      }
+      &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 4px $accent-sky-20;
+      }
     }
   }
 }
+
+//   // --- Responsive ---------------------------------------------------------
+//   @media (max-width: 980px) {
+//     .container {
+//       grid-template-columns: 1fr;
+//     }
+//   }
+
+//   @media (max-width: 560px) {
+//     padding: $space-6;
+
+//     .section-left {
+//       padding: $space-6;
+//       .main-text {
+//         margin-bottom: $space-5;
+//       }
+//     }
+//   }
+// }
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
+// .contact-us .container {
+//   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+// }
+
+// /* 3) Tvinga grid-barnen att få krympa */
+// .contact-us .right-section,
+// .contact-us .glas-container,
+// .contact-us .contact-form {
+//   min-width: 0;
+// }
+
+// /* 4) Inputs ska aldrig sticka ut */
+// .contact-us .contact-input,
+// .contact-us .input-textarea {
+//   display: block;
+//   width: 100%;
+//   max-width: 100%;
+//   min-width: 0; /* fix för grid/flex overflow */
+// }

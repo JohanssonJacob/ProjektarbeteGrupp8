@@ -1,0 +1,22 @@
+@use "sass:color";
+@use "sass:map";
+@use "./variables" as *;
+// get breakpint for mediaquery
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $key: $breakpoint);
+  @if $raw-query == null {
+    @error "No value found for `#{$breakpoint}` in `$breakpoints` map.";
+  }
+  @media #{unquote($raw-query)} {
+    @content;
+  }
+}
+// get fontsize
+@function fs($key) {
+  @if map.has-key($font-sizes, $key) {
+    @return map.get($font-sizes, $key);
+  } @else {
+    @warn "fs() : Unknown key `#{$key}`. Falling back to `md`.";
+    @return map.get($font-sizes, md);
+  }
+}
