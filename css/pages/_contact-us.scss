@@ -50,41 +50,20 @@ $border-bright: rgba(255, 255, 255, 0.75);
   }
 
   .container {
-    width: min(640px, 100%);
-    padding: clamp($space-6, 3.5vh, $space-8);
-    margin-inline: auto;
-    border-radius: $radius-xl;
-    box-shadow: $shadow-soft-lg;
+    width: 100%;
+    padding: clamp($space-6, 4vh, $space-8);
+    margin-top: clamp(3rem, 4vh, $space-8);
     backdrop-filter: blur(4px);
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 1fr; // mobil = 1 kolumn
-    gap: $space-6;
+    flex-direction: column;
+
     background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
 
-    @include respond-to(sm) {
-      width: min(500px, 100%);
-      display: grid;
-      padding: clamp($space-2, 3.5vw, $space-8);
-      border-radius: $radius-xl;
-      border: 1px solid $border-dim;
-      grid-template-columns: 1.2fr 1fr;
-      gap: clamp($space-6, 4vw, $space-8);
-      align-items: stretch;
-      background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
-      color: $on-dark;
-
-      backdrop-filter: blur(4px);
-      box-shadow: $shadow-soft-lg;
-    }
     @include respond-to(md) {
-      width: min(1200px, 100%);
       display: grid;
-
       padding: clamp($space-5, 3.5vw, $space-8);
       border-radius: $radius-xl;
       border: 1px solid $border-dim;
-
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: clamp($space-6, 4vw, $space-8);
       align-items: stretch;
       background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
@@ -99,7 +78,7 @@ $border-bright: rgba(255, 255, 255, 0.75);
       padding: clamp($space-2, 3.5vw, $space-8);
       border-radius: $radius-xl;
       border: 1px solid $border-dim;
-
+      grid-template-columns: 1.2fr 1fr;
       gap: clamp($space-6, 4vw, $space-8);
       align-items: stretch;
       background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
@@ -138,33 +117,28 @@ $border-bright: rgba(255, 255, 255, 0.75);
 
     .contact-icons {
       display: grid;
-
+      gap: $space-4;
       padding: 0;
       margin: 0;
       list-style: none;
 
       .contact-li {
         display: grid;
-
-        align-items: center;
         grid-template-columns: auto 1fr;
-        gap: $space-4;
+        gap: $space-3;
+        align-items: start;
       }
 
       .contact-icon {
         display: grid;
         place-items: center;
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
         border-radius: 12px;
         color: rgba(34, 197, 94, 0.95);
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid $border-dim;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        @include respond-to(md) {
-          width: 50px;
-          height: 50px;
-        }
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
       }
 
       .tel-text {
@@ -188,15 +162,14 @@ $border-bright: rgba(255, 255, 255, 0.75);
   }
 
   .glas-container {
-    width: 100%;
-    padding: clamp($space-5, 5vw, $space-7);
-    border-radius: $radius-xl;
+    width: min(480px, 100%);
+    padding: clamp($space-6, 3vw, $space-7);
     border-radius: $radius-xl;
   }
 
   .contact-form {
     display: grid;
-    gap: $space-3;
+    gap: $space-4;
 
     // Group label + input for consistent vertical rhythm
     .form-group {
@@ -207,7 +180,7 @@ $border-bright: rgba(255, 255, 255, 0.75);
 
     .contact-label {
       color: $on-dark;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 600;
       letter-spacing: 0.2px;
     }
@@ -268,7 +241,7 @@ $border-bright: rgba(255, 255, 255, 0.75);
       color: #02263a; // readable on sky
       transition: transform 120ms ease, box-shadow 160ms ease,
         background 160ms ease;
-      box-shadow: 0 6px 16px $accent-sky-30;
+      box-shadow: 0 8px 18px $accent-sky-30;
 
       &:hover {
         transform: translateY(-1px);
