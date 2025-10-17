@@ -2,6 +2,8 @@
 @use "sass:map";
 @use './variables' as *;
 @use "pages/contact-us";
+@use "./pages/about";
+@use "./pages/reviews";
 @use "./mixins" as mx;
 
 * {

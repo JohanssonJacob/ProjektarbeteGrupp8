@@ -1,0 +1,100 @@
+@use "sass:map";
+@use "sass:color";
+@use "../variables" as *; 
+@use "../mixins" as *;
+
+.reviews {
+  background: $navbar-bg;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 1rem 3rem;
+  min-height: 250px;
+
+  @include respond-up(md) { padding: 6rem 2rem 4rem; }
+  @include respond-up(lg) { padding: 8rem 2rem 6rem; }
+
+  #reviews-title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 1rem + 2vw, 2.25rem);
+    color: $primary;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .review-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 800px;
+
+    @include respond-up(md) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 1000px;
+    }
+  }
+
+  .review {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: $shadow-soft;
+    padding: 1.5rem 2rem;
+    width: min(750px, 100%);
+    text-align: center;
+
+    @include respond-up(md) { width: calc(50% - 0.75rem); }
+    @include respond-up(lg) { width: calc(33.333% - 1rem); }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-glow;
+    }
+
+    .stars {
+      font-size: 1.2rem;
+      color: #FFD700;
+      margin-bottom: 0.5rem;
+    }
+
+    .comment {
+      font-family: $font-body;
+      color: color.mix($primary, black, 15%);
+      margin-bottom: 0.75rem;
+      font-size: map.get($font-sizes, base);
+      line-height: 1.6;
+      font-style: $font-body;
+    }
+
+    .customer {
+      font-family: $font-body;
+      font-weight: 600;
+      color: $accent;
+    }
+  }
+
+  .show-more-btn {
+    margin-top: 2rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 999px;
+    background: $accent;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: $font-body;
+    font-size: map.get($font-sizes, base);
+
+    &:hover {
+      background: color.mix($accent, $sky, 25%);
+      transform: translateY(-2px);
+    }
+  }
+}
