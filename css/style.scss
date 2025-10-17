@@ -8,8 +8,10 @@
 @use "./abstracts/variables" as *;
 @use "components/navbar";
 
-* {
+html,
+body {
   margin: 0;
+  padding: 0;
 }
 
 :root {
