@@ -366,6 +366,331 @@
   box-shadow: 0 0 0 4px rgba(97, 194, 255, 0.2);
 }
 
+.about-title {
+  background: #f5f5f5;
+  border-bottom: 1px solid rgb(224.52, 225.12, 229.08);
+  padding-block: 1.75rem 1rem;
+}
+.about-title .first-container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+@media (min-width: 768px) {
+  .about-title .first-container {
+    padding-inline: 1.5rem;
+  }
+}
+.about-title .about {
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #010627;
+  font-size: clamp(1.75rem, 1.1rem + 2.5vw, 3rem);
+  margin: 0 0 0.25rem;
+}
+.about-title .company {
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 700;
+  color: #010627;
+  opacity: 0.95;
+  font-size: 1.125rem;
+  margin: 0 0 0.25rem;
+}
+.about-title .phrase {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0;
+  position: relative;
+  padding-bottom: 0.4rem;
+}
+.about-title .phrase::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 999px;
+  background: hsl(168, 62%, 52%);
+}
+
+.perfektion {
+  background: #f5f5f5;
+  color: #010627;
+  padding-block: 2.5rem;
+}
+.perfektion .second-container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .perfektion .second-container {
+    padding-inline: 2rem;
+  }
+}
+.perfektion .history {
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+  font-weight: 500;
+  color: #010627;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.perfektion .history::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 60px;
+  height: 3px;
+  border-radius: 999px;
+  background: hsl(168, 62%, 52%);
+}
+.perfektion p {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: clamp(1rem, 0.6rem + 1vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgb(0.15, 0.9, 5.85);
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 768px) {
+  .perfektion p {
+    font-size: 1.125rem;
+  }
+}
+
+/* TEAMSTRUKTUR */
+.team {
+  background: #f5f5f5;
+  padding-block: 3rem;
+}
+.team .team-container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .team .team-container {
+    padding-inline: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .team .team-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .team .team-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.team #team-title {
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.25rem);
+  font-weight: 700;
+  color: #010627;
+  text-align: left;
+  margin-bottom: 2rem;
+  position: relative;
+  margin: 35px;
+}
+.team #team-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.6rem;
+  width: 70px;
+  height: 3px;
+  border-radius: 999px;
+  background: hsl(168, 62%, 52%);
+}
+.team .level-1,
+.team .level-2 {
+  display: contents;
+}
+.team .cleaners-grid {
+  grid-column: 1/-1;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .team .cleaners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .team .cleaners-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.team .employee-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px hsla(210, 20%, 16%, 0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.team .employee-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
+}
+.team .employee-card img {
+  width: 80px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.team .employee-card h3 {
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  color: #010627;
+  margin: 0.25rem 0;
+}
+.team .employee-card .role {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 700;
+  color: #040404;
+  margin-bottom: 0.75rem;
+}
+.team .employee-card .email a {
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: hsl(202, 100%, 69%);
+}
+.team .employee-card .email a:hover {
+  text-decoration: underline;
+}
+.team .employee-card .desc {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  color: rgb(0.15, 0.9, 5.85);
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+.reviews {
+  background: rgb(239.19, 249.203, 255);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 1rem 3rem;
+  min-height: 250px;
+}
+@media (min-width: 768px) {
+  .reviews {
+    padding: 6rem 2rem 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .reviews {
+    padding: 8rem 2rem 6rem;
+  }
+}
+.reviews #reviews-title {
+  font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 1rem + 2vw, 2.25rem);
+  color: #010627;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.reviews .review-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 800px;
+}
+@media (min-width: 768px) {
+  .reviews .review-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1000px;
+  }
+}
+.reviews .review {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px hsla(210, 20%, 16%, 0.1);
+  padding: 1.5rem 2rem;
+  width: min(750px, 100%);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .reviews .review {
+    width: calc(50% - 0.75rem);
+  }
+}
+@media (min-width: 1024px) {
+  .reviews .review {
+    width: calc(33.333% - 1rem);
+  }
+}
+.reviews .review:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px -10px hsla(168, 97%, 15%, 0.3);
+}
+.reviews .review .stars {
+  font-size: 1.2rem;
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+.reviews .review .comment {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgb(0.15, 0.9, 5.85);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+.reviews .review .customer {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  color: hsl(168, 62%, 52%);
+}
+.reviews .show-more-btn {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 999px;
+  background: hsl(168, 62%, 52%);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1rem;
+}
+.reviews .show-more-btn:hover {
+  background: rgb(86.853, 199.8945, 235.7832);
+  transform: translateY(-2px);
+}
+
+* {
+  margin: 0;
+}
+
+/* ===========================
+
+/* Google Fonts: Inter (400,500) för brödtext, Poppins (600,700) för rubriker */
 :root {
   --nav-h: 64px;
 }

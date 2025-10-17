@@ -3,10 +3,13 @@
 @use "./pages/services";
 @use "./abstracts/variables" as *;
 @use "pages/contact-us";
+@use "./pages/about";
+@use "./pages/reviews";
 @use "./abstracts/mixins" as mx;
 @use "./base/typoraphy" as *;
 @use "./abstracts/variables" as *;
 @use "components/navbar";
+
 
 html,
 body {
