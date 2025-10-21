@@ -1,283 +1,192 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
-// --- Tokens ---------------------------------------------------------------
-:root {
-  --gutter: clamp(#{$space-1}, 5vw, #{$space-7});
+@use "../colors" as *;
+@use "../base/typoraphy" as *;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-// --- Layout ---------------------------------------------------------------
-.contact-us {
-  display: grid;
-  min-height: 100dvh;
-  place-items: center;
-  overflow: hidden;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 
-  /* konsekvent, symmetrisk padding */
-  padding-inline: max(var(--gutter), env(safe-area-inset-left));
-  padding-block-start: max(var(--gutter), env(safe-area-inset-top));
-  padding-block-end: max(var(--gutter), env(safe-area-inset-bottom));
-  background-image: url("/assets/towfiqu-barbhuiya--9gPKrsbGmc-unsplash.jpg");
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: $font-body;
+  background-color: $accent-sky-40;
+  color: $midnight-blue;
+}
 
-  @include respond-up(sm) {
-    padding: clamp($space-1, 1vh, $space-8);
-    justify-items: center;
-  }
+// --- Headings ------------------------------------------------------------
+h1 {
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  color: $accent-mint;
+  font-weight: 800;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: $midnight-blue;
+  font-family: $font-heading;
+  margin-bottom: 0.6rem;
+}
+
+p {
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: $midnight-blue;
+}
+
+// --- Main container ------------------------------------------------------
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(2, 38, 58, 0.2), rgba(2, 38, 58, 0.4)),
+    url("/assets/icons/jeshoots-com-__ZMnefoI3k-unsplash.jpg") center/cover
+      no-repeat;
+  padding: 3rem 1rem;
 
   .container {
-    display: block;
+    display: grid;
+    gap: 2rem;
     width: 100%;
-    margin: 0;
-    backdrop-filter: blur(4px);
-    padding: var(--gutter);
-    max-width: 640px;
-    background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    border: 1px solid $border-dim;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 1.2rem;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+    }
+
     @include respond-up(md) {
-      max-width: 1200px;
-      margin-inline: auto;
-      display: grid;
-      border-radius: $radius-xl;
-      border: 1px solid $border-dim;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp($space-1, 10vw, $space-4);
+      grid-template-columns: 1fr 1fr;
       align-items: stretch;
-      background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
-      color: $on-dark;
-
-      backdrop-filter: blur(20px);
-      box-shadow: $shadow-soft-lg;
     }
-    @include respond-up(lg) {
-      padding: clamp($space-2, 3.5vw, $space-8);
-      border-radius: $radius-xl;
-      border: 1px solid $border-dim;
-      grid-template-columns: 1.2fr 1fr;
-      gap: clamp($space-6, 4vw, $space-8);
-      align-items: stretch;
-      background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
-      color: $on-dark;
 
-      backdrop-filter: blur(4px);
-      box-shadow: $shadow-soft-lg;
-    }
-  }
-
-  // --- Left side ---------------------------------------------------------
-  .section-left {
-    display: block;
-    .title {
-      margin: 0 0 $space-3; // bort med stor top-marginal på mobil
-      text-align: start;
-      font-size: fs(lg);
-      color: if(global-variable-exists(accent), $accent, $accent-sky);
-      font-weight: 700;
-    }
-    .main-text {
-      padding: 0;
-      margin: 0 0 $space-4;
-      font-size: fs(xl);
-      color: $on-dark;
-
-      p {
-        margin: 1rem 0.2rem $space-4;
-        font-size: fs(lg);
-        max-width: 38ch;
-      }
+    // --- Left side (info) ------------------------------------------------
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       #info {
-        color: $text-dim;
-        font-size: 1rem;
-        padding: 0; // rensa intern padding
-        max-width: 42ch;
-        margin-bottom: 4rem;
+        margin-top: 1rem;
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        color: $midnight-blue;
+        opacity: 0.9;
+        max-width: 35ch;
       }
-    }
 
-    .contact-container {
-      width: 100%;
-      max-width: none;
+      .icons {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
 
-      .contact-list {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: clamp(3px, 2.5vw, 14px);
-        padding: 0;
-        margin: 0;
-
-        .contact-item {
+        span {
           display: grid;
-          grid-template-rows: auto auto;
-          justify-items: center;
-          text-align: center;
-        }
-
-        a {
-          margin-top: 6px;
-          margin-bottom: 2.5rem;
-          font-size: clamp(0.8rem, 3.2vw, 0.95rem);
-          max-width: 20ch;
-          color: $text-dim;
-          text-decoration: none;
-          font-weight: 700;
-          &:hover {
-            text-decoration: underline;
-            color: white;
-          }
-        }
-
-        .info-row {
-          display: grid;
-
-          border-bottom: 1px solid rgba(97, 194, 255, 0.9);
-
-          @include respond-up(md) {
-          }
-        }
-        .contact-icon {
-          height: 15px;
-          width: 15px;
-          display: grid;
-          text-align: center;
-
           place-items: center;
-          border-radius: 999px;
-          padding: 0.5rem;
+          width: 3.2rem;
+          height: 3.2rem;
+          border-radius: 50%;
+          background: linear-gradient(135deg, $accent-mint, $accent-sky-40);
+          color: white;
+          font-size: 1.4rem;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-          color: $text-dim;
-          border: 1px solid $text-dim;
           &:hover {
-            border-color: $accent-sky;
-            box-shadow: 0 0 0 4px $accent-sky-40;
-            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 12px rgba(97, 194, 255, 0.4);
           }
-
-          @include respond-up(md) {
-            width: 40px;
-            height: 40px;
-            padding: 0;
-          }
-        }
-        @include respond-up(md) {
-          display: grid;
-
-          align-items: center;
-          gap: 12px;
         }
       }
     }
 
-    @include respond-up(md) {
-      display: flex;
-    }
-  }
-
-  // --- Right side / Form -------------------------------------------------
-  .right-section {
-    display: block;
-    width: 100%;
-  }
-
-  .glas-container {
-    width: 100%;
-    max-width: 420px;
-    margin-inline: auto;
-    padding: 0; // rensa – container sköter padding
-    border-radius: $radius-xl;
-  }
-
-  .contact-form {
-    display: grid;
-    gap: clamp($space-1, 2.5vw, $space-4);
-
-    .form-group {
+    // --- Right side (form) ------------------------------------------------
+    .contact-form {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(#{$space-1}, 2.5vw, #{$space-1}); // avstånd label <-> input
-      width: 95%;
-    }
+      gap: 1.2rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
 
-    .contact-label {
-      color: $on-dark;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.6px;
-    }
-
-    .contact-input,
-    .input-textarea {
-      width: 100%;
-      padding: $space-3 $space-2 $space-4;
-      max-width: 100%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid $border-dim;
-      border-radius: $radius-sm;
-      color: $on-dark;
-      outline: none;
-      transition: border-color 160ms ease, box-shadow 160ms ease,
-        background-color 160ms ease;
-      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
-
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.6);
+      @include respond-up(md) {
+        padding: 2rem;
       }
 
-      &:hover {
-        border-color: $border-bright;
-        background: rgba(255, 255, 255, 0.12);
+      .lb-input {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        label {
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: $midnight-blue;
+        }
+
+        input {
+          width: 100%;
+          padding: 0.9rem 1rem;
+          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          background: rgba(255, 255, 255, 0.6);
+          font-size: 1rem;
+          color: $midnight-blue;
+          outline: none;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.8);
+          }
+
+          &:focus {
+            border-color: $accent-sky-30;
+            box-shadow: 0 0 0 4px rgba(97, 194, 255, 0.25);
+            background: rgba(255, 255, 255, 1);
+          }
+        }
       }
 
-      &:focus,
-      &:focus-visible {
-        border-color: $accent-sky;
-        box-shadow: 0 0 0 4px $accent-sky-20;
-        background: rgba(255, 255, 255, 0.14);
-      }
+      button {
+        margin-top: 0.8rem;
+        align-self: start;
+        padding: 0.9rem 2rem;
+        border-radius: 999px;
+        border: none;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: #02263a;
+        background: linear-gradient(180deg, $accent-sky-20, $accent-mint);
+        box-shadow: 0 6px 16px rgba(97, 194, 255, 0.4);
+        transition: all 0.25s ease;
 
-      &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-    }
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 24px rgba(97, 194, 255, 0.5);
+        }
 
-    .input-textarea {
-      min-height: 140px;
-      border-radius: $radius-lg;
-      resize: vertical;
-    }
-
-    .contact-btn {
-      justify-self: start;
-      padding: $space-3 $space-6;
-      border-radius: 999px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      border: 1px solid transparent;
-      background: linear-gradient(
-        180deg,
-        $accent-sky,
-        rgba(97, 194, 255, 0.85)
-      );
-      color: #02263a; // readable on sky
-      transition: transform 120ms ease, box-shadow 160ms ease,
-        background 160ms ease;
-      box-shadow: 0 8px 18px $accent-sky-30;
-
-      &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 12px 22px $accent-sky-40;
-      }
-      &:active {
-        transform: translateY(0);
-      }
-      &:focus-visible {
-        outline: none;
-        box-shadow: 0 0 0 4px $accent-sky-20;
+        &:active {
+          transform: translateY(0);
+        }
       }
     }
   }

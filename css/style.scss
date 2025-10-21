@@ -14,6 +14,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: auto;
 }
 
 :root {
@@ -21,16 +22,17 @@ body {
   --font-body: #{$font-body};
   --font-ui: #{$font-ui};
 }
-body {
-  width: 100%;
-}
 
 /* Bas-typografi (mobile-first) */
 
 /* ===========================
    RESPONSIVE
 =========================== */
-
+main img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 @include mx.respond-up(md) {
   .logo {
     height: 60px;
@@ -50,12 +52,20 @@ body {
   text-align: left;
   justify-content: space-between;
   justify-items: center;
-  overflow: hidden;
+
   p {
     font-size: mx.fs(md);
     padding: 2px;
   }
   @include mx.respond-up(md) {
+    background: linear-gradient(180deg, #0d2336 0%, #102f45 90%);
+    color: #d8e1e8;
+    padding: 3rem 1rem 2rem;
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    text-align: left;
+    justify-content: space-between;
+    justify-items: center;
   }
 
   .container {
