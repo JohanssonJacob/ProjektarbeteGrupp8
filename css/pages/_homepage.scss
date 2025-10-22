@@ -1,0 +1,185 @@
+@use "../colors";
+@use "../base/typoraphy" as typography;
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+  color: colors.$neutral-light-gray;
+  font-family: typography.$font-body;
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(colors.$midnight-blue, 0.6);
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 700px;
+    text-align: center;
+
+    .tagline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+      color: colors.$accent-mint;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      font-family: typography.$font-heading;
+
+      img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+      }
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      line-height: 1.3;
+      font-weight: 700;
+      color: colors.$neutral-light-gray;
+      margin-bottom: 1rem;
+      font-family: typography.$font-heading;
+
+      span {
+        color: colors.$accent-sky;
+      }
+    }
+
+    .subtext {
+      margin: 1.2rem 0 2rem;
+      font-size: 1rem;
+      color: colors.$neutral-light-gray;
+      line-height: 1.5;
+      font-family: typography.$font-body;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+
+      .btn {
+        padding: 0.8rem 1.8rem;
+        border-radius: 6px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s ease;
+        width: 100%;
+        max-width: 250px;
+        font-family: typography.$font-heading;
+
+        &.primary {
+          background: colors.$accent-mint;
+          border: 2px solid colors.$accent-mint;
+          color: colors.$neutral-light-gray;
+
+          &:hover {
+            filter: brightness(1.08);
+            transform: scale(1.01);
+          }
+        }
+
+        &.secondary {
+          border: 2px solid colors.$neutral-light-gray;
+          color: colors.$neutral-light-gray;
+
+          &:hover {
+            background: rgba(colors.$neutral-light-gray, 0.1);
+            transform: scale(1.01);
+          }
+        }
+      }
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      color: colors.$neutral-light-gray;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: typography.$font-body;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        img {
+          width: 22px;
+          height: 22px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 600px) {
+    .hero-content {
+      .buttons {
+        flex-direction: row;
+        justify-content: center;
+        .btn {
+          width: auto;
+        }
+      }
+
+      .features {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+      }
+    }
+  }
+
+  @media (min-width: 900px) {
+    justify-content: flex-start;
+    padding: 0 5%;
+
+    .hero-content {
+      text-align: left;
+
+      .tagline {
+        justify-content: flex-start;
+      }
+
+      .buttons {
+        justify-content: flex-start;
+      }
+
+      .features {
+        justify-content: flex-start;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+}
