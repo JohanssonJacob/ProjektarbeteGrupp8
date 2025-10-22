@@ -9,6 +9,7 @@
 @use "./base/typoraphy" as *;
 @use "./abstracts/variables" as *;
 @use "components/navbar";
+@use "./pages/homepage";
 
 html,
 body {
