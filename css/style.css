@@ -176,21 +176,15 @@
 
 html,
 body {
+  height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-body);
   background-color: rgba(97, 194, 255, 0.4);
   color: #0f2741;
 }
 
-h1 {
-  font-size: clamp(1.8rem, 6vw, 2.6rem);
-  color: #34d3b4;
-  font-weight: 800;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1rem;
-}
-
+h1,
 h2,
 h3,
 h4,
@@ -198,35 +192,34 @@ h5,
 h6 {
   font-weight: 700;
   color: #0f2741;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-heading);
   margin-bottom: 0.6rem;
 }
 
-p {
-  font-size: clamp(1rem, 3vw, 1.1rem);
-  font-weight: 500;
-  line-height: 1.6;
-  color: #0f2741;
+button,
+nav,
+label,
+input {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
 }
 
 .main-container {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(rgba(2, 38, 58, 0.2), rgba(2, 38, 58, 0.4)), url("/assets/icons/jeshoots-com-__ZMnefoI3k-unsplash.jpg") center/cover no-repeat;
-  padding: 3rem 1rem;
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
 }
 .main-container .container {
   display: grid;
-  gap: 2rem;
+  gap: 3 rem;
   width: 100%;
   max-width: 1100px;
   background: rgba(255, 255, 255, 0.12);
   -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
   border-radius: 1.2rem;
-  padding: clamp(1.5rem, 5vw, 3rem);
+  padding: clamp(2rem, 5vw, 4rem);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -244,13 +237,36 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-right: 1rem;
+}
+.main-container .container .contact-info h1 {
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: #34d3b4;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.03);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.5px;
+}
+.main-container .container .contact-info h3 {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  color: rgb(24.5625, 63.8625, 106.4375);
+  margin-bottom: 1.4rem;
+}
+.main-container .container .contact-info p {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+  color: rgb(24.5625, 63.8625, 106.4375);
+  margin-bottom: 1.2rem;
 }
 .main-container .container .contact-info #info {
-  margin-top: 1rem;
-  font-size: clamp(1rem, 3vw, 1.1rem);
-  color: #0f2741;
-  opacity: 0.9;
-  max-width: 35ch;
+  font-family: 500;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: rgb(22.65, 58.89, 98.15);
+  max-width: 55ch;
+  margin-bottom: 1.6rem;
 }
 .main-container .container .contact-info .icons {
   margin-top: 2rem;
@@ -274,14 +290,17 @@ p {
   box-shadow: 0 6px 12px rgba(97, 194, 255, 0.4);
 }
 .main-container .container .contact-form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 1.2rem;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
+  margin-top: 2rem;
 }
 @media (min-width: 768px) {
   .main-container .container .contact-form {
@@ -291,19 +310,21 @@ p {
 .main-container .container .contact-form .lb-input {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 .main-container .container .contact-form .lb-input label {
   font-size: 0.95rem;
   font-weight: 600;
   color: #0f2741;
+  padding: 1rem 0;
 }
 .main-container .container .contact-form .lb-input input {
   width: 100%;
   padding: 0.9rem 1rem;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   color: #0f2741;
   outline: none;
@@ -318,9 +339,9 @@ p {
   background: rgb(255, 255, 255);
 }
 .main-container .container .contact-form button {
-  margin-top: 0.8rem;
+  margin-top: 1rem;
   align-self: start;
-  padding: 0.9rem 2rem;
+  padding: 0.9rem 2.4rem;
   border-radius: 999px;
   border: none;
   font-weight: 700;
@@ -354,7 +375,7 @@ p {
   }
 }
 .about-title .about {
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   line-height: 1.15;
   color: #010627;
@@ -362,7 +383,7 @@ p {
   margin: 0 0 0.25rem;
 }
 .about-title .company {
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
   color: #010627;
   opacity: 0.95;
@@ -370,7 +391,7 @@ p {
   margin: 0 0 0.25rem;
 }
 .about-title .phrase {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-style: italic;
   margin: 0;
   position: relative;
@@ -404,7 +425,7 @@ p {
   }
 }
 .perfektion .history {
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
   font-weight: 500;
   color: #010627;
@@ -422,7 +443,7 @@ p {
   background: hsl(168, 62%, 52%);
 }
 .perfektion p {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-size: clamp(1rem, 0.6rem + 1vw, 1.125rem);
   font-weight: 400;
   line-height: 1.7;
@@ -464,7 +485,7 @@ p {
   }
 }
 .team #team-title {
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-size: clamp(1.75rem, 1rem + 2vw, 2.25rem);
   font-weight: 700;
   color: #010627;
@@ -524,14 +545,14 @@ p {
   margin-bottom: 1rem;
 }
 .team .employee-card h3 {
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: 2.2rem;
   color: #010627;
   margin: 0.25rem 0;
 }
 .team .employee-card .role {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
   color: #040404;
   margin-bottom: 0.75rem;
@@ -546,7 +567,7 @@ p {
   text-decoration: underline;
 }
 .team .employee-card .desc {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   color: rgb(0.15, 0.9, 5.85);
   line-height: 1.6;
   margin-top: 0.75rem;
@@ -573,7 +594,7 @@ p {
   }
 }
 .reviews #reviews-title {
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
   font-size: clamp(1.75rem, 1rem + 2vw, 2.25rem);
   color: #010627;
@@ -625,14 +646,14 @@ p {
   margin-bottom: 0.5rem;
 }
 .reviews .review .comment {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   color: rgb(0.15, 0.9, 5.85);
   margin-bottom: 0.75rem;
   line-height: 1.6;
-  font-style: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-style: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
 }
 .reviews .review .customer {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   color: hsl(168, 62%, 52%);
 }
@@ -645,7 +666,7 @@ p {
   color: white;
   font-weight: 600;
   cursor: pointer;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
 }
 .reviews .show-more-btn:hover {
   background: rgb(86.853, 199.8945, 235.7832);
@@ -759,6 +780,93 @@ body {
     display: none;
   }
 }
+.site-footer {
+  background: #0f2741;
+  color: #f5f9ff;
+  padding: 2.5rem 1.5rem 1.2rem;
+  text-align: center;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+}
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.site-footer .container .footer-col {
+  max-width: 320px;
+}
+.site-footer .container .footer-col h4 {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  color: #34d3b4;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3px;
+}
+.site-footer .container .footer-col p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+.site-footer .container .footer-col .footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.site-footer .container .footer-col .footer-nav a {
+  color: #f5f9ff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.site-footer .container .footer-col .footer-nav a:hover {
+  color: #34d3b4;
+  opacity: 1;
+}
+.site-footer .container .footer-col .footer-info p {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+.site-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+@media (min-width: 768px) {
+  .site-footer {
+    text-align: left;
+  }
+  .site-footer .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .site-footer .footer-col {
+    flex: 1;
+  }
+  .site-footer .footer-col:first-child {
+    max-width: 300px;
+  }
+  .site-footer .footer-col .footer-nav ul {
+    align-items: flex-start;
+  }
+  .site-footer .footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -767,141 +875,7 @@ body {
 }
 
 :root {
-  --font-heading: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, Helvetica Neue, sans-serif Noto Sans, Helvetica Neue, sans-serif;
-  --font-body: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, Helvetica Neue, sans-serif Noto Sans, Helvetica Neue, sans-serif;
-  --font-ui: system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, Helvetica Neue, sans-serif Noto Sans, Helvetica Neue, sans-serif;
-}
-
-/* Bas-typografi (mobile-first) */
-/* ===========================
-   RESPONSIVE
-=========================== */
-main img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .logo {
-    height: 60px;
-  }
-  .pages-link {
-    font-size: 2.2rem;
-    font: bold;
-  }
-}
-.site-footer {
-  background: linear-gradient(180deg, #0d2336 0%, #102f45 90%);
-  color: #d8e1e8;
-  padding: 3rem 1rem 2rem;
-  font-family: var(--font-ui);
-  font-size: 1rem;
-  text-align: left;
-  justify-content: space-between;
-  justify-items: center;
-}
-.site-footer p {
-  font-size: 1.2rem;
-  padding: 2px;
-}
-@media (min-width: 768px) {
-  .site-footer {
-    background: linear-gradient(180deg, #0d2336 0%, #102f45 90%);
-    color: #d8e1e8;
-    padding: 3rem 1rem 2rem;
-    font-family: var(--font-ui);
-    font-size: 1rem;
-    text-align: left;
-    justify-content: space-between;
-    justify-items: center;
-  }
-}
-.site-footer .container {
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  gap: 2rem;
-}
-@media (min-width: 480px) {
-  .site-footer .container {
-    display: flex;
-    flex-direction: column;
-    flex-direction: row;
-    padding: 1rem;
-    gap: 2rem;
-  }
-}
-.site-footer .footer-col {
-  text-align: left;
-  justify-content: flex-start;
-  justify-items: flex-start;
-  align-items: flex-start;
-  padding: 1rem;
-}
-.site-footer .footer-col h4 {
-  width: 100%;
-}
-.site-footer .footer-col p {
-  max-width: 300px;
-  line-height: 1.2;
-}
-.site-footer .footer-col a {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  text-align: left;
-  line-height: 1.2;
-  transition: color 0.3s ease;
-}
-.site-footer .footer-col a:hover {
-  color: hsl(168, 62%, 52%);
-}
-.site-footer .footer-col .footer-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.site-footer .footer-col .footer-nav .footer-nav li {
-  text-align: left;
-}
-@media (min-width: 480px) {
-  .site-footer .footer-col {
-    padding: 1rem;
-    justify-content: flex-start;
-    align-items: flex-start;
-    justify-items: flex-start;
-    padding: 1rem;
-    margin: 1rem;
-  }
-}
-.site-footer .footer-desc {
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 2;
-  font-size: 0.875rem;
-  max-width: 300px;
-}
-@media (min-width: 768px) {
-  .site-footer .footer-col {
-    line-height: 1;
-    font-size: 2.2rem;
-  }
-}
-
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  font-size: 1.2rem;
-}
-
-.footer-bottom {
-  width: 100%;
-  margin-top: 3rem;
-  padding-top: 1.25rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  --font-heading: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, Helvetica Neue, sans-serif;
+  --font-body: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, Helvetica Neue, sans-serif;
+  --font-ui: system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, Helvetica Neue, sans-serif;
 }/*# sourceMappingURL=style.css.map */
