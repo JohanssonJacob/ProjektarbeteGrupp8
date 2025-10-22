@@ -3,107 +3,72 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>kontakta oss</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel=" stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="/js/include-nav.js" defer></script>
 
 </head>
 
-
 <body>
     <header id="navbar-container">
 
     </header>
-    <main class="contact-us">
-
+    <main class="main-container">
         <div class="container">
-            <section class="section-left">
-                <div class="text-left">
-                    <p class="title">
-                        Kontakta oss
-                    </p>
+            <section class="contact-info">
 
-                    <div class="main-text">
-                        <p>Redo att boka din städning? </p>
-                        <p id="info">
-                            Fyll i formuläret så återkommer vi inom 24 timmar med en skräddarsydd offert. Eller ring oss
-                            direkt för snabbare svar.
-                        </p>
+                <h1>Kontakta oss</h1>
+                <p>Redo att boka din städning?</p>
+                <p id="info">
+                    Fyll i formuläret så återkommer vi inom 24 timmar med en skräddarsydd offert. Eller ring oss
+                    direkt för snabbare svar.
+                </p>
+                <div class="icons">
+                    <span class="contact-icon" aria-hidden="true">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                    <span class="contact-icon" aria-hidden="true">
+                        <i class="fa-regular fa-envelope"></i>
+                    </span>
+
+                    <span class="contact-icon" aria-hidden="true">
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                    </span>
+                </div>
+
+
+
+
+
+            </section>
+            <section class="contact-info">
+                <form class="contact-form">
+                    <div class="contact-form-container">
+                        <div class="lb-input">
+                            <label for="">
+                                Namn
+                            </label>
+                            <input type="text" placeholder="Ditt namn">
+                        </div>
+                        <div class="lb-input">
+                            <label for="">
+                                Email:
+                            </label>
+                            <input type="text" placeholder="namn@exempel.se">
+                        </div>
+                        <div class="lb-input">
+                            <label for="">
+                                Telefon number
+                            </label>
+                            <input type="text" placeholder="000-000 00 00">
+                        </div>
+
                     </div>
-                    <ul class="contact-icons">
-
-
-                        <li class="contact-li">
-
-                            <div class="contact-icon">
-                                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-
-                            </div>
-                            <div class="tel-text">
-                                <p>Telefone</p>
-                                <p class="tel-number">+46 70 123 45 67</p>
-                            </div>
-                        </li>
-                        <li class="contact-li">
-                            <div class="contact-icon">
-                                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-
-                            </div>
-                            <div class="tel-text">
-                                <p>Email</p>
-                                <p class="tel-number">info@grupp8stad.se</p>
-                            </div>
-                        </li>
-                        <li class="contact-li">
-                            <div class="contact-icon">
-                                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-
-                            </div>
-                            <div class="tel-text">
-                                <p>Adress</p>
-                                <p class="tel-number">Storgatan 123
-                                    123 45 Stockholm</p>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
+                </form>
             </section>
-            <section class="right-section">
-                <div class="glas-container">
 
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label class="contact-label" for="name">Namn</label>
-                            <input type="text" id="name" class="contact-input" placeholder="Ditt namn" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="contact-label" for="email">E‑post</label>
-                            <input type="email" id="email" class="contact-input" placeholder="namn@exempel.se" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="contact-label" for="phone">Telefon</label>
-                            <input type="tel" id="phone" class="contact-input" placeholder="070‑123 45 67">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="contact-label" for="message">Meddelande</label>
-                            <textarea id="message" class="input-textarea" placeholder="Vad kan vi hjälpa dig med?"
-                                rows="6"></textarea>
-                        </div>
-
-                        <button type="submit" class="contact-btn">Skicka</button>
-                    </form>
-
-                </div>
-            </section>
         </div>
     </main>
 

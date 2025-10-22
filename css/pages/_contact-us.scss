@@ -1,271 +1,193 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
-// --- Tokens ---------------------------------------------------------------
+@use "../colors" as *;
+@use "../base/typoraphy" as *;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-// --- Layout ---------------------------------------------------------------
-.contact-us {
-  background-image: url("/assets/towfiqu-barbhuiya--9gPKrsbGmc-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: grid;
-  min-height: 100dvh;
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: $font-body;
+  background-color: $accent-sky-40;
+  color: $midnight-blue;
+}
 
-  place-items: center;
+// --- Headings ------------------------------------------------------------
+h1 {
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  color: $accent-mint;
+  font-weight: 800;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
 
-  overflow: hidden;
-  @include respond-up(sm) {
-    padding: clamp($space-2, 4vh, $space-8);
-  }
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: $midnight-blue;
+  font-family: $font-heading;
+  margin-bottom: 0.6rem;
+}
+
+p {
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: $midnight-blue;
+}
+
+// --- Main container ------------------------------------------------------
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(2, 38, 58, 0.2), rgba(2, 38, 58, 0.4)),
+    url("/assets/icons/jeshoots-com-__ZMnefoI3k-unsplash.jpg") center/cover
+      no-repeat;
+  padding: 3rem 1rem;
 
   .container {
+    display: grid;
+    gap: 2rem;
     width: 100%;
-    padding: clamp($space-6, 4vh, $space-8);
-    margin-top: clamp(3rem, 4vh, $space-8);
-    backdrop-filter: blur(4px);
-    flex-direction: column;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 1.2rem;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+    }
 
     @include respond-up(md) {
-      display: grid;
-      padding: clamp($space-5, 3.5vw, $space-8);
-      border-radius: $radius-xl;
-      border: 1px solid $border-dim;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: clamp($space-6, 4vw, $space-8);
+      grid-template-columns: 1fr 1fr;
       align-items: stretch;
-      background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
-      color: $on-dark;
-
-      backdrop-filter: blur(4px);
-      box-shadow: $shadow-soft-lg;
-    }
-    @include respond-up(lg) {
-      width: min(1200px, 100%);
-      display: grid;
-      padding: clamp($space-2, 3.5vw, $space-8);
-      border-radius: $radius-xl;
-      border: 1px solid $border-dim;
-      grid-template-columns: 1.2fr 1fr;
-      gap: clamp($space-6, 4vw, $space-8);
-      align-items: stretch;
-      background: linear-gradient(155deg, $accent-sky-40, $accent-sky-30);
-      color: $on-dark;
-
-      backdrop-filter: blur(4px);
-      box-shadow: $shadow-soft-lg;
-    }
-  }
-
-  // --- Left side ---------------------------------------------------------
-  .section-left {
-    .title {
-      text-align: start;
-      font-size: clamp(22px, 2.3vw, 28px);
-      color: if(global-variable-exists(accent), $accent, $accent-sky);
-      margin-bottom: $space-4;
-      letter-spacing: 0.2px;
-      font-weight: 700;
     }
 
-    .main-text {
-      max-width: 50ch;
-      color: $on-dark;
-      margin-bottom: $space-6;
-
-      p {
-        margin: 0 0 $space-2;
-      }
+    // --- Left side (info) ------------------------------------------------
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       #info {
-        color: $text-dim;
-        font-size: clamp(14px, 1.4vw, 16px);
+        margin-top: 1rem;
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        color: $midnight-blue;
+        opacity: 0.9;
+        max-width: 35ch;
+      }
+
+      .icons {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+
+        span {
+          display: grid;
+          place-items: center;
+          width: 3.2rem;
+          height: 3.2rem;
+          border-radius: 50%;
+          background: linear-gradient(135deg, $accent-mint, $accent-sky-40);
+          color: white;
+          font-size: 1.4rem;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+          &:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 12px rgba(97, 194, 255, 0.4);
+          }
+        }
       }
     }
 
-    .contact-icons {
+    // --- Right side (form) ------------------------------------------------
+    .contact-form {
       display: grid;
-      gap: $space-4;
-      padding: 0;
-      margin: 0;
-      list-style: none;
+      gap: 1.2rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
 
-      .contact-li {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: $space-3;
-        align-items: start;
+      @include respond-up(md) {
+        padding: 2rem;
       }
 
-      .contact-icon {
-        display: grid;
-        place-items: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        color: rgba(34, 197, 94, 0.95);
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid $border-dim;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      .lb-input {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        label {
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: $midnight-blue;
+        }
+
+        input {
+          width: 100%;
+          padding: 0.9rem 1rem;
+          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          background: rgba(255, 255, 255, 0.6);
+          font-size: 1rem;
+          color: $midnight-blue;
+          outline: none;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.8);
+          }
+
+          &:focus {
+            border-color: $accent-sky-30;
+            box-shadow: 0 0 0 4px rgba(97, 194, 255, 0.25);
+            background: rgba(255, 255, 255, 1);
+          }
+        }
       }
 
-      .tel-text {
-        color: $on-dark;
-        font-size: clamp(15px, 1.5vw, 17px);
+      button {
+        margin-top: 0.8rem;
+        align-self: start;
+        padding: 0.9rem 2rem;
+        border-radius: 999px;
+        border: none;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: #02263a;
+        background: linear-gradient(180deg, $accent-sky-20, $accent-mint);
+        box-shadow: 0 6px 16px rgba(97, 194, 255, 0.4);
+        transition: all 0.25s ease;
 
-        .tel-number {
-          font-size: 14px;
-          color: $text-dim;
-          margin-top: 2px;
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 24px rgba(97, 194, 255, 0.5);
+        }
+
+        &:active {
+          transform: translateY(0);
         }
       }
     }
   }
-
-  // --- Right side / Form -------------------------------------------------
-  .right-section {
-    display: flex;
-    flex-wrap: wrap;
-    place-items: center;
-  }
-
-  .glas-container {
-    width: min(480px, 100%);
-    padding: clamp($space-6, 3vw, $space-7);
-    border-radius: $radius-xl;
-  }
-
-  .contact-form {
-    display: grid;
-    gap: $space-4;
-
-    // Group label + input for consistent vertical rhythm
-    .form-group {
-      display: grid;
-      gap: $space-2;
-      flex-wrap: wrap;
-    }
-
-    .contact-label {
-      color: $on-dark;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-
-    .contact-input,
-    .input-textarea {
-      width: 100%;
-      padding: $space-4 $space-5;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid $border-dim;
-      border-radius: $radius-md;
-      color: $on-dark;
-      outline: none;
-      transition: border-color 160ms ease, box-shadow 160ms ease,
-        background-color 160ms ease;
-      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
-
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.6);
-      }
-
-      &:hover {
-        border-color: $border-bright;
-        background: rgba(255, 255, 255, 0.12);
-      }
-
-      &:focus,
-      &:focus-visible {
-        border-color: $accent-sky;
-        box-shadow: 0 0 0 4px $accent-sky-20;
-        background: rgba(255, 255, 255, 0.14);
-      }
-
-      &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-    }
-
-    .input-textarea {
-      min-height: 140px;
-      border-radius: $radius-lg;
-      resize: vertical;
-    }
-
-    .contact-btn {
-      justify-self: start;
-      padding: $space-3 $space-6;
-      border-radius: 999px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      border: 1px solid transparent;
-      background: linear-gradient(
-        180deg,
-        $accent-sky,
-        rgba(97, 194, 255, 0.85)
-      );
-      color: #02263a; // readable on sky
-      transition: transform 120ms ease, box-shadow 160ms ease,
-        background 160ms ease;
-      box-shadow: 0 8px 18px $accent-sky-30;
-
-      &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 12px 22px $accent-sky-40;
-      }
-      &:active {
-        transform: translateY(0);
-      }
-      &:focus-visible {
-        outline: none;
-        box-shadow: 0 0 0 4px $accent-sky-20;
-      }
-    }
-  }
 }
-
-//   // --- Responsive ---------------------------------------------------------
-//   @media (max-width: 980px) {
-//     .container {
-//       grid-template-columns: 1fr;
-//     }
-//   }
-
-//   @media (max-width: 560px) {
-//     padding: $space-6;
-
-//     .section-left {
-//       padding: $space-6;
-//       .main-text {
-//         margin-bottom: $space-5;
-//       }
-//     }
-//   }
-// }
-// *,
-// *::before,
-// *::after {
-//   box-sizing: border-box;
-// }
-// .contact-us .container {
-//   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-// }
-
-// /* 3) Tvinga grid-barnen att få krympa */
-// .contact-us .right-section,
-// .contact-us .glas-container,
-// .contact-us .contact-form {
-//   min-width: 0;
-// }
-
-// /* 4) Inputs ska aldrig sticka ut */
-// .contact-us .contact-input,
-// .contact-us .input-textarea {
-//   display: block;
-//   width: 100%;
-//   max-width: 100%;
-//   min-width: 0; /* fix för grid/flex overflow */
-// }
