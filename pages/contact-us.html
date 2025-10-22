@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>kontakta oss</title>
     <link rel=" stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="/js/include-nav.js" defer></script>
 
@@ -20,11 +23,17 @@
             <section class="contact-info">
 
                 <h1>Kontakta oss</h1>
-                <p>Redo att boka din städning?</p>
+                <h3>Redo att boka din städning?</h3>
                 <p id="info">
-                    Fyll i formuläret så återkommer vi inom 24 timmar med en skräddarsydd offert. Eller ring oss
-                    direkt för snabbare svar.
+                    Fyll i formuläret så återkommer vi inom 24 timmar med en skräddarsydd offert.
+                    Eller ring oss direkt för snabbare svar.
                 </p>
+                <p>
+                    Vi erbjuder flexibla lösningar för både privatpersoner och företag, med fokus på kvalitet, trygghet
+                    och noggrannhet i varje detalj. Oavsett om du behöver hjälp med hemstädning, flyttstäd eller
+                    kontorsstäd, skräddarsyr vi en plan som passar just dina behov.
+                </p>
+
                 <div class="icons">
                     <span class="contact-icon" aria-hidden="true">
                         <i class="fa-solid fa-phone"></i>
@@ -71,7 +80,12 @@
 
         </div>
     </main>
-
+    <div id="footer"></div>
+    <script>
+        fetch("/components/footer.html")
+            .then(res => res.text())
+            .then(html => document.getElementById("footer").innerHTML = html);
+    </script>
 </body>
 
 </html>
