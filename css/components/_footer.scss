@@ -2,58 +2,110 @@
 @use "../base/typoraphy" as *;
 @use "../colors" as *;
 @use "../abstracts/mixins"as *;
+
 .site-footer {
+  display: grid;
+  justify-content: center;
+  box-sizing: border-box;
   background: $midnight-blue;
-  color: #f5f9ff;
-  padding: 2.5rem 1.5rem 1.2rem;
-  text-align: center;
-  font-family: $font-body;
+  color: white;
 
   .container {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
+    padding: 0 5rem;
+    color: white;
+    gap: 4rem;
 
+    @include respond-up(md) {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 10rem;
+      padding: 1rem 10rem;
+
+      margin: 0 auto;
+
+      justify-items: center;
+    }
     .footer-col {
-      max-width: 320px;
-
-      h4 {
-        font-family: $font-heading;
-        font-weight: 700;
-        color: $accent-mint;
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-        letter-spacing: 0.3px;
+      font-family: var(--font-body);
+      margin-bottom: 0.3rem;
+      @include respond-up(md) {
+        font-weight: 200;
+        font-size: 1rem;
       }
 
-      p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-        opacity: 0.9;
+      h4 {
+        font-weight: 600;
+        font-size: 0.7rem;
+        color: white;
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.3px;
+        text-align: center;
+        @include respond-up(md) {
+          font-family: $font-heading;
+          text-align: left;
+          font-weight: 900;
+          font-size: 1rem;
+
+          margin-bottom: 0.3rem;
+          letter-spacing: 0.5px;
+        }
+      }
+      // Här påverkar du texten du menar
+      .intro-text {
+        color: white;
+
+        font-size: 0.4rem;
+        line-height: 1.1;
+        font-weight: 300;
+        text-align: center;
+
+        @include respond-up(md) {
+          font-size: 1rem;
+          max-width: 25rem;
+          text-align: left;
+        }
       }
 
       // Snabblänkar
       .footer-nav {
-        ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+        @include respond-up(md) {
           display: flex;
-          flex-direction: column;
-          gap: 0.6rem;
+          justify-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+        ul,
+        li {
+          list-style: none;
+
+          display: grid;
+          gap: 0.2rem;
+          text-align: center;
+          @include respond-up(md) {
+            text-align: center;
+          }
         }
 
         a {
-          color: #f5f9ff;
+          color: white;
           text-decoration: none;
-          font-size: 0.95rem;
-          opacity: 0.9;
+          font-size: 0.4rem;
+
           transition: opacity 0.2s ease, color 0.2s ease;
+          @include respond-up(md) {
+            display: flex;
+            font-size: 1rem;
+            text-align: center;
+          }
 
           &:hover {
             color: $accent-mint;
-            opacity: 1;
           }
         }
       }
@@ -61,9 +113,13 @@
       // Kontaktinfo
       .footer-info {
         p {
+          display: flex;
+
           margin-bottom: 0.3rem;
-          font-size: 0.95rem;
-          opacity: 0.9;
+          font-size: 0.4rem;
+          @include respond-up(md) {
+            font-size: 1rem;
+          }
         }
       }
     }
@@ -74,38 +130,16 @@
     border-top: 1px solid rgba(255, 255, 255, 0.15);
     margin-top: 2rem;
     padding-top: 1rem;
-    font-size: 0.85rem;
+    font-size: 0.4rem;
     opacity: 0.7;
+    text-align: center;
+    @include respond-up(md) {
+      text-align: center;
+    }
   }
 
   // --- Tablet & Desktop layout ---
   @include respond-up(md) {
-    text-align: left;
-
-    .container {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .footer-col {
-      flex: 1;
-
-      &:first-child {
-        max-width: 300px;
-      }
-
-      .footer-nav ul {
-        align-items: flex-start;
-      }
-    }
-
-    .footer-bottom {
-      text-align: center;
-      font-size: 0.9rem;
-    }
+    text-align: center;
   }
 }
