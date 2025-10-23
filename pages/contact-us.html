@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>kontakta oss</title>
     <link rel=" stylesheet" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
-        rel="stylesheet">
-
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -50,11 +47,6 @@
                         <i class="fa-solid fa-map-marker-alt"></i>
                     </span>
                 </div>
-
-
-
-
-
             </section>
             <section class="contact-info">
                 <form class="contact-form">
@@ -77,6 +69,24 @@
                             </label>
                             <input type="text" placeholder="000-000 00 00">
                         </div>
+                        <div class="lb-input">
+                            <label for="subject">Ämne</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Välj ett alternativ</option>
+                                <option value="product">Köp av produkt/tjänst</option>
+                                <option value="questions">Frågor om företaget</option>
+                                <option value="feedback">Synpunkter på webbplats</option>
+                            </select>
+                        </div>
+
+                        <div class="lb-input">
+                            <label for="message">Meddelande</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Skriv ditt meddelande här..."
+                                required></textarea>
+                        </div>
+                        <button>
+                            Skicka
+                        </button>
 
                     </div>
                 </form>
