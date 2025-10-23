@@ -7,7 +7,7 @@
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", "Noto Sans", "Helvetica Neue", sans-serif;
 }
 .services .subtitle {
-  color: #34d3b4;
+  color: #0f7660;
   font-weight: 600;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -136,7 +136,7 @@
   align-items: center;
   gap: 6px;
   background: linear-gradient(135deg, #34d3b4, #61c2ff);
-  color: #fff;
+  color: #2e2e2e;
   font-size: 1rem;
   font-weight: 600;
   padding: 8px 12px;
@@ -850,7 +850,7 @@ body {
 .hero .hero-content .buttons .btn.primary {
   background: #34d3b4;
   border: 2px solid #34d3b4;
-  color: #f3f5f7;
+  color: #2e2e2e;
 }
 .hero .hero-content .buttons .btn.primary:hover {
   filter: brightness(1.08);

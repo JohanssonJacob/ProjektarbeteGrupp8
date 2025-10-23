@@ -14,7 +14,7 @@ $transition: all 0.25s ease;
   font-family: typography.$font-body;
 
   .subtitle {
-    color: colors.$accent-mint;
+    color: colors.$neutral-dark-green;
     font-weight: 600;
     margin-bottom: 12px;
     text-transform: uppercase;
@@ -156,7 +156,7 @@ $transition: all 0.25s ease;
             align-items: center;
             gap: 6px;
             background: linear-gradient(135deg, colors.$accent-mint, colors.$accent-sky);
-            color: $white;
+            color: colors.$neutral-dark-gray;
             font-size: 1rem;
             font-weight: 600;
             padding: 8px 12px;
