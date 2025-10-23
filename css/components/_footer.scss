@@ -47,12 +47,11 @@
           text-align: left;
           font-weight: 900;
           font-size: 1rem;
-
           margin-bottom: 0.3rem;
+
           letter-spacing: 0.5px;
         }
       }
-      // Här påverkar du texten du menar
       .intro-text {
         color: white;
 
@@ -136,10 +135,5 @@
     @include respond-up(md) {
       text-align: center;
     }
-  }
-
-  // --- Tablet & Desktop layout ---
-  @include respond-up(md) {
-    text-align: center;
   }
 }
