@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
   <title> Om oss </title>
+
   <script src="/js/include-nav.js" defer></script>
 </head>
 
@@ -127,6 +128,12 @@
       </div>
     </section>
   </main>
+  <div id="footer"></div>
+  <script>
+    fetch("/components/footer.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("footer").innerHTML = html);
+  </script>
 </body>
 
 </html>
