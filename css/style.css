@@ -1079,11 +1079,6 @@ body {
     text-align: center;
   }
 }
-@media (min-width: 768px) {
-  .site-footer {
-    text-align: center;
-  }
-}
 
 html,
 body {
