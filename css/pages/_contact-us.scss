@@ -7,7 +7,6 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 html,
@@ -45,10 +44,14 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-height: 100%;
   background: linear-gradient(rgba(2, 38, 58, 0.2), rgba(2, 38, 58, 0.4)),
     url("/assets/icons/jeshoots-com-__ZMnefoI3k-unsplash.jpg") center/cover
       no-repeat;
-  padding: clamp(2rem, 5vw, 4rem) 1rem;
+  padding: clamp(4rem, 2vw, 3rem) 0.5rem;
+  @include respond-up(md) {
+    padding: clamp(7rem, 5vw, 4rem) 1rem;
+  }
   .container {
     display: grid;
     gap: 3 rem;
