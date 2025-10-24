@@ -3,15 +3,17 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 @use "../base/typoraphy" as *;
+@use "../colors";
+
 .reviews {
-  background: $navbar-bg;
-  min-height: 100vh;
+  background: colors.$neutral-light-gray;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 4rem 1rem 3rem;
-  min-height: 250px;
+  //smin-height: 250px;
 
   @include respond-up(md) {
     padding: 6rem 2rem 4rem;

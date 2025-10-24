@@ -22,3 +22,7 @@ body {
   --font-body: #{$font-body};
   --font-ui: #{$font-ui};
 }
+
+.pages-link.is-active {
+  text-decoration: underline;
+}
