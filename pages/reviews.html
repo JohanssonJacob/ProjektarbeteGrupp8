@@ -4,44 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title> Reviews </title>
+
+    <title>Projektarbete</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/include-nav.js" defer></script>
 </head>
 
 <body>
-    <section class="reviews">
-        <h1 id="reviews-title"> Kundrecensioner </h1>
-        <div class="review-list">
-            <article class="review">
-                <p class="stars"> ⭐ ⭐ ⭐ ⭐ ⭐ </p>
-                <p class="comment">
-                    Supernöjd! Jag bokade flyttstäd via sidan och allt gick smidigt. Städteamet var punktliga och
-                    lägenheten blev skinande ren. Rekommenderas varmt!
-                </p>
-                <p class="customer"> Anna L, Uppsala</p>
-            </article>
 
-            <article class="review">
-                <p class="stars"> ⭐ ⭐ ⭐ </p>
-                <p class="comment"> Tjänsten var enkel att använda och jag fick snabbt offert från flera städfirmor.
-                    Valde den som passade min budget bäst. Lite strul med betalningen i början men supporten löste det
-                    direkt. </p>
-                <p class="customer"> Martin S, Stockholm</p>
-            </article>
+    <header id="navbar-container"></header>
 
-            <article class="review">
-                <p class="stars"> ⭐ ⭐ ⭐ ⭐ ⭐ </p>
-                <p class="comment"> Fantastiskt koncept! Slapp ringa runt till olika städföretag själv. Allt bokades
-                    online och resultatet blev över förväntan. Kommer absolut använda tjänsten igen. </p>
-                <p class="customer"> Lisa M, Malmö</p>
-            </article>
-        </div>
+    <body>
+        <section class="reviews">
+            <h1 id="reviews-title"> Kundrecensioner </h1>
+            <div class="review-list">
+                <article class="review">
+                    <p class="stars"> ⭐ ⭐ ⭐ ⭐ ⭐ </p>
+                    <p class="comment">
+                        Supernöjd! Jag bokade flyttstäd via sidan och allt gick smidigt. Städteamet var punktliga och
+                        lägenheten blev skinande ren. Rekommenderas varmt!
+                    </p>
+                    <p class="customer"> Anna L, Uppsala</p>
+                </article>
 
-        <button class="show-more-btn"> Visa mer </button>
+                <article class="review">
+                    <p class="stars"> ⭐ ⭐ ⭐ </p>
+                    <p class="comment"> Tjänsten var enkel att använda och jag fick snabbt offert från flera städfirmor.
+                        Valde den som passade min budget bäst. Lite strul med betalningen i början men supporten löste
+                        det
+                        direkt. </p>
+                    <p class="customer"> Martin S, Stockholm</p>
+                </article>
 
-    </section>
-    <div id="footer"></div>
+                <article class="review">
+                    <p class="stars"> ⭐ ⭐ ⭐ ⭐ ⭐ </p>
+                    <p class="comment"> Fantastiskt koncept! Slapp ringa runt till olika städföretag själv. Allt bokades
+                        online och resultatet blev över förväntan. Kommer absolut använda tjänsten igen. </p>
+                    <p class="customer"> Lisa M, Malmö</p>
+                </article>
+            </div>
 
-</body>
+            <button class="show-more-btn"> Visa mer </button>
+
+        </section>
+        <div id="footer"></div>
+        <script>
+            fetch("/components/footer.html")
+                .then(res => res.text())
+                .then(html => document.getElementById("footer").innerHTML = html);
+        </script>
+
+    </body>
 
 </html>
